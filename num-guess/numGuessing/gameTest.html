@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script src="js/shared.js"></script>
+        <script src="../number_guessing/scripts/shared.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>猜数字游戏 - 猜数字</title>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <div class="container"><button class="logout-button" onclick="logout()">退出登录</button>
+            <h2>猜数字游戏</h2>
+            <div class="form-group"><label for="guess">请输入你的猜测（1-100）</label> <input type="number" id="guess" min="1" max="100" onkeypress="if(event.key === 'Enter') guessNumber()"> <button onclick="guessNumber()">猜测</button>
+            </div>
+        </div> <span style="color:grey; font-size:10px" onclick="turnToEdgeDownload()">无法正常游玩？下载 Microsoft Edge</span>
+        <p id="version-text" style="color:grey; font-size:10px; cursor: pointer;" onclick="versionClick()">版本：25w04b</p>
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <p>© 2025 IceWars1o1. All rights reserved.</p>
+                    <p>This project is licensed under the <a href="https://iw1o1.dpdns.org/copyright">MIT License</a>.</p>
+                </div>
+            </div>
+        </footer>
+        <script>
+        function logout() {
+            alert('已退出登录！');
+            window.location.href = "login.html";
+        }
+        // 页面加载时检查用户是否已登录
+        window.onload = function() {
+            const username = localStorage.getItem('currentUser');
+            if (!username === 1) {
+                alert('请先登录！');
+                window.location.href = "login.html";
+            }
+        };
+    </script>
+    </body>
+</html>

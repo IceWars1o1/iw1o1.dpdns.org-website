@@ -141,6 +141,9 @@ function redirect(urlNum) {
     if (urlNum === 1) {
         window.location.href = "https://qm.qq.com/cgi-bin/qm/qr?k=ISFb6sqeNNSE0yd39ONWcTZjVH8oudq3&jump_from=webapi&authKey=N47tZpH/Qe05W/9DL3v5C7O8qXrCYN1BOrOJ8a0yCXZJIzb1r6KkXL8GH1VCDbbE";
     }
+    if (urlNum === 2) {
+        window.location.href = "https://docs.qq.com/doc/p/6680f8acaf8080ee485f58d1cf88d69223da57d9";
+    }
 }
 const navBtns = document.querySelectorAll('.nav-btn');
 const sections = ['home', 'features', 'rules', 'feedback', 'join', 'footer'];

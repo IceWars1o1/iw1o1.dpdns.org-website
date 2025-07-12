@@ -1,128 +1,1095 @@
-<!doctype html>
+<!doctype html><!-- saved from url=(0028) -->
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>InfMinecraft Server 介绍</title>
-  <script type="module" crossorigin src="assets/js/index-CRDsEF86.js"></script>
-  <link rel="stylesheet" crossorigin href="assets/css/index-SMxC4BR_.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="shortcut icon" href="https://infmc.dpdns.org/new/images/logo.ico" type="image/x-icon">
+    <link rel="icon" href="https://infmc.dpdns.org/new/images/logo.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfMinecraft Server 介绍</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/scripts.js" defer></script>
+
 </head>
 
 <body>
-  <div id="root"></div>
+    <div id="root">
+        <div class="min-h-screen bg-white">
+            <header
+                class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-green-100 shadow-sm">
+                <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex items-center justify-between h-16">
+                        <div class="flex items-center space-x-3 cursor-pointer">
+                            <img src="https://infmc.dpdns.org/new/images/logo.jpg" alt="Logo"
+                                class="w-10 h-10 rounded-lg">
+                            <div class="hidden sm:block">
+                                <h1 class="text-lg font-bold text-gray-900">InfMinecraft</h1>
+                            </div>
+                        </div>
+                        <nav class="hidden md:flex items-center space-x-8">
+                            <button
+                                class="nav-btn text-sm font-medium transition-colors duration-200 px-3 py-2 rounded-lg text-green-600 bg-green-50"
+                                onclick="scrollToLine('home')">首页</button><button
+                                class="nav-btn text-sm font-medium transition-colors duration-200 px-3 py-2 rounded-lg text-gray-600 hover:text-green-600 hover:bg-green-50"
+                                onclick="scrollToLine('features')">本服特色</button><button
+                                class="nav-btn text-sm font-medium transition-colors duration-200 px-3 py-2 rounded-lg text-gray-600 hover:text-green-600 hover:bg-green-50"
+                                onclick="scrollToLine('rules')">规则文档</button><button
+                                class="nav-btn text-sm font-medium transition-colors duration-200 px-3 py-2 rounded-lg text-gray-600 hover:text-green-600 hover:bg-green-50"
+                                onclick="scrollToLine('feedback')">社区反馈</button><button
+                                class="nav-btn text-sm font-medium transition-colors duration-200 px-3 py-2 rounded-lg text-gray-600 hover:text-green-600 hover:bg-green-50"
+                                onclick="scrollToLine('join')">加入我们</button>
+                        </nav>
+                        <div class="flex items-center space-x-4">
+                            <button
+                                class="md:hidden p-2 text-gray-600 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-menu ">
+                                    <line x1="4" x2="20" y1="12" y2="12"></line>
+                                    <line x1="4" x2="20" y1="6" y2="6"></line>
+                                    <line x1="4" x2="20" y1="18" y2="18"></line>
+                                </svg></button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main>
+                <section id="home">
+                    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+                        <div class="absolute inset-0 z-0">
+                            <div class="w-full h-full bg-cover bg-center bg-no-repeat"
+                                style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(&quot;https://infmc.dpdns.org/new/images/minecraft-bg.jpg&quot;);">
+                                <div class="absolute inset-0">
+                                    <div class="absolute w-2 h-2 bg-green-400 rounded-full opacity-20 animate-pulse"
+                                        style="left: 0.26802%; top: 78.345%; animation-delay: 2.97876s; animation-duration: 2.83195s;">
+                                    </div>
+                                    <div class="absolute w-2 h-2 bg-green-400 rounded-full opacity-20 animate-pulse"
+                                        style="left: 72.6957%; top: 19.5311%; animation-delay: 1.77934s; animation-duration: 4.97638s;">
+                                    </div>
+                                    <div class="absolute w-2 h-2 bg-green-400 rounded-full opacity-20 animate-pulse"
+                                        style="left: 35.4579%; top: 72.4005%; animation-delay: 0.357726s; animation-duration: 4.24897s;">
+                                    </div>
+                                    <div class="absolute w-2 h-2 bg-green-400 rounded-full opacity-20 animate-pulse"
+                                        style="left: 14.7802%; top: 54.1175%; animation-delay: 0.438827s; animation-duration: 2.88705s;">
+                                    </div>
+                                    <div class="absolute w-2 h-2 bg-green-400 rounded-full opacity-20 animate-pulse"
+                                        style="left: 27.608%; top: 88.8064%; animation-delay: 0.852015s; animation-duration: 4.38983s;">
+                                    </div>
+                                    <div class="absolute w-2 h-2 bg-green-400 rounded-full opacity-20 animate-pulse"
+                                        style="left: 48.5258%; top: 91.1705%; animation-delay: 1.89965s; animation-duration: 3.80351s;">
+                                    </div>
+                                    <div class="absolute w-2 h-2 bg-green-400 rounded-full opacity-20 animate-pulse"
+                                        style="left: 94.2108%; top: 32.9163%; animation-delay: 0.754326s; animation-duration: 2.94193s;">
+                                    </div>
+                                    <div class="absolute w-2 h-2 bg-green-400 rounded-full opacity-20 animate-pulse"
+                                        style="left: 9.38855%; top: 31.6305%; animation-delay: 1.06894s; animation-duration: 2.91995s;">
+                                    </div>
+                                    <div class="absolute w-2 h-2 bg-green-400 rounded-full opacity-20 animate-pulse"
+                                        style="left: 27.9409%; top: 21.0089%; animation-delay: 2.0454s; animation-duration: 4.24416s;">
+                                    </div>
+                                    <div class="absolute w-2 h-2 bg-green-400 rounded-full opacity-20 animate-pulse"
+                                        style="left: 42.8882%; top: 34.1757%; animation-delay: 1.94771s; animation-duration: 2.65233s;">
+                                    </div>
+                                    <div class="absolute w-2 h-2 bg-green-400 rounded-full opacity-20 animate-pulse"
+                                        style="left: 78.6041%; top: 83.8606%; animation-delay: 2.29644s; animation-duration: 4.43475s;">
+                                    </div>
+                                    <div class="absolute w-2 h-2 bg-green-400 rounded-full opacity-20 animate-pulse"
+                                        style="left: 5.68827%; top: 38.6206%; animation-delay: 2.58403s; animation-duration: 3.68256s;">
+                                    </div>
+                                    <div class="absolute w-2 h-2 bg-green-400 rounded-full opacity-20 animate-pulse"
+                                        style="left: 56.7864%; top: 62.4616%; animation-delay: 0.637754s; animation-duration: 3.09551s;">
+                                    </div>
+                                    <div class="absolute w-2 h-2 bg-green-400 rounded-full opacity-20 animate-pulse"
+                                        style="left: 85.3923%; top: 83.0257%; animation-delay: 2.84009s; animation-duration: 2.78792s;">
+                                    </div>
+                                    <div class="absolute w-2 h-2 bg-green-400 rounded-full opacity-20 animate-pulse"
+                                        style="left: 92.937%; top: 28.0494%; animation-delay: 2.30434s; animation-duration: 3.79708s;">
+                                    </div>
+                                    <div class="absolute w-2 h-2 bg-green-400 rounded-full opacity-20 animate-pulse"
+                                        style="left: 79.4794%; top: 36.9984%; animation-delay: 0.170401s; animation-duration: 2.09651s;">
+                                    </div>
+                                    <div class="absolute w-2 h-2 bg-green-400 rounded-full opacity-20 animate-pulse"
+                                        style="left: 68.5785%; top: 33.0721%; animation-delay: 1.07485s; animation-duration: 2.46093s;">
+                                    </div>
+                                    <div class="absolute w-2 h-2 bg-green-400 rounded-full opacity-20 animate-pulse"
+                                        style="left: 46.3275%; top: 36.1737%; animation-delay: 0.310934s; animation-duration: 4.23974s;">
+                                    </div>
+                                    <div class="absolute w-2 h-2 bg-green-400 rounded-full opacity-20 animate-pulse"
+                                        style="left: 48.0295%; top: 71.3479%; animation-delay: 0.206668s; animation-duration: 2.44568s;">
+                                    </div>
+                                    <div class="absolute w-2 h-2 bg-green-400 rounded-full opacity-20 animate-pulse"
+                                        style="left: 6.11851%; top: 97.683%; animation-delay: 1.90769s; animation-duration: 3.9223s;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+                            <div class="mb-8">
+                                <div
+                                    class="w-24 h-24 mx-auto bg-gradient-to-br from-green-400 to-emerald-600 rounded-2xl flex items-center justify-center shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                                    <img src="https://infmc.dpdns.org/new/images/logo.jpg" alt="Logo"
+                                        class="w-full h-full rounded-2xl object-cover">
+                                </div>
+                            </div>
+                            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"><span
+                                    class="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">InfMinecraft我的世界服务器</span>
+                            </h1>
+                            <h2 class="text-xl sm:text-2xl lg:text-3xl text-green-100 mb-8 font-medium">
+                                体验无限可能的Minecraft世界</h2>
+                            <p class="text-lg sm:text-xl text-gray-200 mb-12 max-w-3xl mx-auto leading-relaxed">
+                                在我们的服务器上享受安全、有趣的多人游戏体验，与全球玩家一起探索、建造和冒险！</p>
+                            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+                                <button
+                                    class="group flex items-center space-x-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl active:scale-95 active:shadow-lg"
+                                    onclick="scrollToLine('join')">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-play group-hover:scale-110 transition-transform">
+                                        <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                                    </svg><span>立即加入</span></button><button
+                                    class="flex items-center space-x-3 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white/20 transition-all duration-300 hover:shadow-xl active:scale-95 active:bg-white/30"
+                                    onclick="scrollToLine('features')">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-arrow-down ">
+                                        <path d="M12 5v14"></path>
+                                        <path d="m19 12-7 7-7-7"></path>
+                                    </svg><span>了解更多</span></button>
+                            </div>
+                            <div class="flex flex-wrap justify-center gap-3">
+                                <div
+                                    class="flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-full text-white">
+                                    <span class="text-lg">🎉</span><span class="text-sm font-medium">Fun 趣玩</span>
+                                </div>
+                                <div
+                                    class="flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-full text-white">
+                                    <span class="text-lg">🔒</span><span class="text-sm font-medium">Secure 安全</span>
+                                </div>
+                                <div
+                                    class="flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-full text-white">
+                                    <span class="text-lg">💬</span><span class="text-sm font-medium">Support 帮助</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+                            <div class="animate-bounce">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-arrow-down text-white/70">
+                                    <path d="M12 5v14"></path>
+                                    <path d="m19 12-7 7-7-7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+                <section id="features">
+                    <section class="py-20 bg-gradient-to-br from-gray-50 to-green-50">
+                        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="text-center mb-16">
+                                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"><span
+                                        class="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">服务器特色</span>
+                                </h2>
+                                <div
+                                    class="w-24 h-1 bg-gradient-to-r from-green-500 to-emerald-500 mx-auto rounded-full">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                <div
+                                    class="group relative bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-2xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+                                    <div class="absolute top-0 right-0 w-32 h-32 opacity-10">
+                                        <img src="https://infmc.dpdns.org/new/images/minecraft-community.png" alt=""
+                                            class="w-full h-full object-cover rounded-full">
+                                    </div>
+                                    <div class="relative z-10">
+                                        <div class="flex items-center space-x-4 mb-6">
+                                            <div
+                                                class="p-3 bg-white rounded-xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                                                    viewbox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="lucide lucide-gamepad2 text-green-500">
+                                                    <line x1="6" x2="10" y1="11" y2="11"></line>
+                                                    <line x1="8" x2="8" y1="9" y2="13"></line>
+                                                    <line x1="15" x2="15.01" y1="12" y2="12"></line>
+                                                    <line x1="18" x2="18.01" y1="10" y2="10"></line>
+                                                    <path
+                                                        d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z">
+                                                    </path>
+                                                </svg>
+                                            </div><span class="text-4xl">🎉</span>
+                                        </div>
+                                        <h3
+                                            class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 group-hover:text-green-600 transition-colors">
+                                            Fun 趣玩 🎉</h3>
+                                        <p class="text-gray-700 leading-relaxed text-sm sm:text-base">在我们的 Minecraft
+                                            服务器上体验无限的可能性！享受将 SMP 生存与玩家之间惊心动魄的冲突相结合的多功能游戏体验。在一次独特的冒险中随心所欲地探索、建造、战斗和制定战略。
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    </div>
+                                </div>
+                                <div
+                                    class="group relative bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-2xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+                                    <div class="absolute top-0 right-0 w-32 h-32 opacity-10">
+                                        <img src="https://infmc.dpdns.org/new/images/minecraft-security.png" alt=""
+                                            class="w-full h-full object-cover rounded-full">
+                                    </div>
+                                    <div class="relative z-10">
+                                        <div class="flex items-center space-x-4 mb-6">
+                                            <div
+                                                class="p-3 bg-white rounded-xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                                                    viewbox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="lucide lucide-shield text-blue-500">
+                                                    <path
+                                                        d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z">
+                                                    </path>
+                                                </svg>
+                                            </div><span class="text-4xl">🔒</span>
+                                        </div>
+                                        <h3
+                                            class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 group-hover:text-green-600 transition-colors">
+                                            Secure 安全 🔒</h3>
+                                        <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
+                                            我们优先考虑您的安全。我们的服务器采取强有力的措施来保护您的数据。通过加密协议和定期备份，您的进度和个人信息是安全的，让您可以专注于游戏。</p>
+                                    </div>
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    </div>
+                                </div>
+                                <div
+                                    class="group relative bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+                                    <div class="absolute top-0 right-0 w-32 h-32 opacity-10">
+                                        <img src="https://infmc.dpdns.org/new/images/minecraft-blocks.png" alt=""
+                                            class="w-full h-full object-cover rounded-full">
+                                    </div>
+                                    <div class="relative z-10">
+                                        <div class="flex items-center space-x-4 mb-6">
+                                            <div
+                                                class="p-3 bg-white rounded-xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                                                    viewbox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="lucide lucide-users text-purple-500">
+                                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                                    <circle cx="9" cy="7" r="4"></circle>
+                                                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                                </svg>
+                                            </div><span class="text-4xl">💬</span>
+                                        </div>
+                                        <h3
+                                            class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 group-hover:text-green-600 transition-colors">
+                                            Support 帮助 💬</h3>
+                                        <p class="text-gray-700 leading-relaxed text-sm sm:text-base">加入我们活跃的 Minecraft
+                                            服务器社区！与我们热情的社区联系、协作并分享您的冒险经历。无论您是经验丰富的玩家还是游戏新手，我们敬业的团队和热情的玩家都会为您提供帮助。让我们一起创造永恒的回忆！
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-16 text-center">
+                                <div class="flex justify-center space-x-8 text-6xl opacity-20">
+                                    <span class="animate-pulse">⛏️</span><span class="animate-pulse"
+                                        style="animation-delay: 0.5s;">🏗️</span><span class="animate-pulse"
+                                        style="animation-delay: 1s;">⚔️</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+                <section id="rules">
+                    <section class="py-20 bg-white">
+                        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="text-center mb-16">
+                                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"><span
+                                        class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">规则文档</span>
+                                </h2>
+                                <div
+                                    class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-6">
+                                </div>
+                                <div class="flex items-center justify-center space-x-2 text-sm text-gray-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-clock ">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg><span>规则最后更新：2025年3月29日</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap justify-center mb-12">
+                                <div class="flex bg-gray-100 rounded-xl p-2">
+                                    <button onclick="showSection('rule-overview')"
+                                        class="flex items-center space-x-2 px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 bg-white text-blue-600 shadow-md rule-section">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-file-text ">
+                                            <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
+                                            <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                                            <path d="M10 9H8"></path>
+                                            <path d="M16 13H8"></path>
+                                            <path d="M16 17H8"></path>
+                                        </svg><span class="hidden sm:block">规则概述</span></button><button
+                                        onclick="showSection('group-rule')"
+                                        class="flex items-center space-x-2 px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 text-gray-600 hover:text-blue-600">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users ">
+                                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="9" cy="7" r="4"></circle>
+                                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                        </svg><span class="hidden sm:block">交流群规则</span></button><button
+                                        onclick="showSection('server-rule')"
+                                        class="flex items-center space-x-2 px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 text-gray-600 hover:text-blue-600">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-circle-check-big ">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                            <path d="m9 11 3 3L22 4"></path>
+                                        </svg><span class="hidden sm:block">服务器规则</span></button>
+                                </div>
+                            </div>
+                            <div class="max-w-4xl mx-auto rules" id="rule-overview">
+                                <div
+                                    class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-200">
+                                    <div class="flex items-center space-x-3 mb-6">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                            viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-file-text text-blue-600">
+                                            <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
+                                            <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                                            <path d="M10 9H8"></path>
+                                            <path d="M16 13H8"></path>
+                                            <path d="M16 17H8"></path>
+                                        </svg>
+                                        <h3 class="text-2xl font-bold text-gray-900">规则概述</h3>
+                                    </div>
+                                    <div class="prose prose-lg max-w-none">
+                                        <p class="text-gray-700 leading-relaxed">
+                                            本文为您在进入infMC服务器并且进行游玩时必须遵守的规则。此规则适用于任意infMC的服务器。如果用户不同意遵守此规则，则不得使用infMC服务器所提供的服务。当您提交了infMC服务器审核表或进入infMC交流群或进入infMC服务器之后，即视为您已同意遵守此文的所有规则。若您违反了规则，infMC有权利停止为您提供任何服务。所有判罚仅做参照，实际处罚将根据违规情况而有变化。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="max-w-4xl mx-auto rules bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-200"
+                                id="group-rule">
 
-<style>
-#minimax-floating-ball {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 10px 12px;
-  background: #222222;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  color: #F8F8F8;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  z-index: 9999;
-  transition: all 0.3s ease;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-#minimax-floating-ball:hover {
-  transform: translateY(-2px);
-  background: #383838;
-}
-
-.minimax-ball-content {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.minimax-logo-wave {
-  width: 26px;
-  height: 22px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='22' viewBox='0 0 26 22' fill='none'%3E%3Cg clip-path='url(%23clip0_3442_102412)'%3E%3Cpath d='M12.8405 14.6775C12.8405 14.9897 13.0932 15.2424 13.4055 15.2424C13.7178 15.2424 13.9705 14.9897 13.9705 14.6775V2.98254C13.9705 1.88957 13.0809 1 11.9879 1C10.895 1 10.0054 1.88957 10.0054 2.98254V11.566V17.1068C10.0054 17.5773 9.62327 17.9594 9.1528 17.9594C8.68233 17.9594 8.30021 17.5773 8.30021 17.1068V8.04469C8.30021 6.95172 7.41063 6.06215 6.31767 6.06215C5.22471 6.06215 4.33513 6.95172 4.33513 8.04469V11.8855C4.33513 12.3559 3.953 12.7381 3.48254 12.7381C3.01207 12.7381 2.62994 12.3559 2.62994 11.8855V10.4936C2.62994 10.1813 2.37725 9.92861 2.06497 9.92861C1.7527 9.92861 1.5 10.1813 1.5 10.4936V11.8855C1.5 12.9784 2.38957 13.868 3.48254 13.868C4.5755 13.868 5.46508 12.9784 5.46508 11.8855V8.04469C5.46508 7.57422 5.8472 7.19209 6.31767 7.19209C6.78814 7.19209 7.17026 7.57422 7.17026 8.04469V17.1068C7.17026 18.1998 8.05984 19.0894 9.1528 19.0894C10.2458 19.0894 11.1353 18.1998 11.1353 17.1068V2.98254C11.1353 2.51207 11.5175 2.12994 11.9879 2.12994C12.4584 2.12994 12.8405 2.51207 12.8405 2.98254V14.6775Z' fill='%23F8F8F8'/%3E%3Cpath d='M23.3278 6.06215C22.2348 6.06215 21.3452 6.95172 21.3452 8.04469V15.6143C21.3452 16.0847 20.9631 16.4669 20.4926 16.4669C20.0222 16.4669 19.6401 16.0847 19.6401 15.6143V2.98254C19.6401 1.88957 18.7505 1 17.6575 1C16.5645 1 15.675 1.88957 15.675 2.98254V19.0175C15.675 19.4879 15.2928 19.8701 14.8224 19.8701C14.3519 19.8701 13.9698 19.4879 13.9698 19.0175V17.0329C13.9698 16.7206 13.7171 16.4679 13.4048 16.4679C13.0925 16.4679 12.8398 16.7206 12.8398 17.0329V19.0175C12.8398 20.1104 13.7294 21 14.8224 21C15.9153 21 16.8049 20.1104 16.8049 19.0175V2.98254C16.8049 2.51207 17.187 2.12994 17.6575 2.12994C18.128 2.12994 18.5101 2.51207 18.5101 2.98254V15.6143C18.5101 16.7072 19.3997 17.5968 20.4926 17.5968C21.5856 17.5968 22.4752 16.7072 22.4752 15.6143V8.04469C22.4752 7.57422 22.8573 7.19209 23.3278 7.19209C23.7982 7.19209 24.1804 7.57422 24.1804 8.04469V14.6775C24.1804 14.9897 24.4331 15.2424 24.7453 15.2424C25.0576 15.2424 25.3103 14.9897 25.3103 14.6775V8.04469C25.3103 6.95172 24.4207 6.06215 23.3278 6.06215Z' fill='%23F8F8F8'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_3442_102412'%3E%3Crect width='25' height='22' fill='white' transform='translate(0.5)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.minimax-ball-text {
-  font-size: 12px;
-  font-weight: 500;
-  white-space: nowrap;
-}
-
-.minimax-close-icon {
-  margin-left: 8px;
-  font-size: 16px;
-  width: 18px;
-  height: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  cursor: pointer;
-  opacity: 0.7;
-  transition: opacity 0.2s ease;
-}
-
-.minimax-close-icon:hover {
-  opacity: 1;
-}
-</style>
-<div id="minimax-floating-ball">
-  <div class="minimax-ball-content">
-    <div class="minimax-logo-wave"></div>
-    <span class="minimax-ball-text">Created by MiniMax Agent</span>
-  </div>
-  <div class="minimax-close-icon">×</div>
-</div>
-<script>
-// Initialize floating ball functionality
-function initFloatingBall() {
-  const ball = document.getElementById('minimax-floating-ball');
-  if (!ball) return;
-
-  // Initial animation
-  ball.style.opacity = '0';
-  ball.style.transform = 'translateY(20px)';
-
-  setTimeout(() => {
-    ball.style.opacity = '1';
-    ball.style.transform = 'translateY(0)';
-  }, 500);
-
-  // Handle logo click
-  const ballContent = ball.querySelector('.minimax-ball-content');
-  ballContent.addEventListener('click', function (e) {
-    e.stopPropagation();
-    window.open('https://agent.minimax.io/agent', '_blank');
-    ball.style.transform = 'scale(0.95)';
-    setTimeout(() => {
-      ball.style.transform = 'scale(1)';
-    }, 100);
-  });
-
-  // Handle close button click
-  const closeIcon = ball.querySelector('.minimax-close-icon');
-  closeIcon.addEventListener('click', function (e) {
-    e.stopPropagation();
-    ball.style.opacity = '0';
-    ball.style.transform = 'translateY(20px)';
-
-    setTimeout(() => {
-      ball.style.display = 'none';
-    }, 300);
-  });
-}
-
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', initFloatingBall); 
-</script>
-
+                                <div class="flex items-center space-x-3 mb-6"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-users text-green-600">
+                                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                    <h3 class="text-2xl font-bold text-gray-900">交流群规则</h3>
+                                </div>
+                                <div class="space-y-4">
+                                    <div
+                                        class="flex items-start space-x-3 p-4 bg-white rounded-lg border border-green-100">
+                                        <div
+                                            class="flex-shrink-0 w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold">
+                                            1</div>
+                                        <p class="text-gray-700 leading-relaxed">禁止在交流群内引战，抹黑，带节奏，拉踩，恐吓他人。</p>
+                                    </div>
+                                    <div
+                                        class="flex items-start space-x-3 p-4 bg-white rounded-lg border border-green-100">
+                                        <div
+                                            class="flex-shrink-0 w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold">
+                                            2</div>
+                                        <p class="text-gray-700 leading-relaxed">禁止在交流群内造谣任何人、群体或其他服务器，编造不实信息。</p>
+                                    </div>
+                                    <div
+                                        class="flex items-start space-x-3 p-4 bg-white rounded-lg border border-green-100">
+                                        <div
+                                            class="flex-shrink-0 w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold">
+                                            3</div>
+                                        <p class="text-gray-700 leading-relaxed">禁止以任何形式传播黄赌毒内容。</p>
+                                    </div>
+                                    <div
+                                        class="flex items-start space-x-3 p-4 bg-white rounded-lg border border-green-100">
+                                        <div
+                                            class="flex-shrink-0 w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold">
+                                            4</div>
+                                        <p class="text-gray-700 leading-relaxed">可以不赞同他人观点，但禁止以任何形式刻意侮辱他人。</p>
+                                    </div>
+                                    <div
+                                        class="flex items-start space-x-3 p-4 bg-white rounded-lg border border-green-100">
+                                        <div
+                                            class="flex-shrink-0 w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold">
+                                            5</div>
+                                        <p class="text-gray-700 leading-relaxed">禁止以任何形式传播他人个人隐私信息。</p>
+                                    </div>
+                                    <div
+                                        class="flex items-start space-x-3 p-4 bg-white rounded-lg border border-green-100">
+                                        <div
+                                            class="flex-shrink-0 w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold">
+                                            6</div>
+                                        <p class="text-gray-700 leading-relaxed">禁止对发布有关任意群体的歧视内容。</p>
+                                    </div>
+                                    <div
+                                        class="flex items-start space-x-3 p-4 bg-white rounded-lg border border-green-100">
+                                        <div
+                                            class="flex-shrink-0 w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold">
+                                            7</div>
+                                        <p class="text-gray-700 leading-relaxed">禁止讨论政治敏感话题。</p>
+                                    </div>
+                                    <div
+                                        class="flex items-start space-x-3 p-4 bg-white rounded-lg border border-green-100">
+                                        <div
+                                            class="flex-shrink-0 w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold">
+                                            8</div>
+                                        <p class="text-gray-700 leading-relaxed">禁止打广告，包括宣传其他服务器。</p>
+                                    </div>
+                                    <div
+                                        class="flex items-start space-x-3 p-4 bg-white rounded-lg border border-green-100">
+                                        <div
+                                            class="flex-shrink-0 w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold">
+                                            9</div>
+                                        <p class="text-gray-700 leading-relaxed">禁止传播损害游戏体验的内容（如外挂客户端/工具）。</p>
+                                    </div>
+                                    <div
+                                        class="flex items-start space-x-3 p-4 bg-white rounded-lg border border-green-100">
+                                        <div
+                                            class="flex-shrink-0 w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold">
+                                            10</div>
+                                        <p class="text-gray-700 leading-relaxed">禁止以人民币交易服务器内的货币、装备等物品。</p>
+                                    </div>
+                                    <div
+                                        class="flex items-start space-x-3 p-4 bg-white rounded-lg border border-green-100">
+                                        <div
+                                            class="flex-shrink-0 w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold">
+                                            11</div>
+                                        <p class="text-gray-700 leading-relaxed">
+                                            服务器会不定时清理半年/一年以上未发言玩家，误踢可重新申请并备注获得补偿。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="max-w-4xl mx-auto rules px-4 sm:px-6 lg:px-8" id="server-rule">
+                            <div
+                                class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 border border-purple-200">
+                                <div class="flex items-center space-x-3 mb-6"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-big text-purple-600">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <path d="m9 11 3 3L22 4"></path>
+                                    </svg>
+                                    <h3 class="text-2xl font-bold text-gray-900">服务器规则</h3>
+                                </div>
+                                <div class="space-y-4">
+                                    <div
+                                        class="flex items-start space-x-3 p-4 bg-white rounded-lg border border-purple-100">
+                                        <div
+                                            class="flex-shrink-0 w-6 h-6 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-sm font-semibold">
+                                            1</div>
+                                        <p class="text-gray-700 leading-relaxed">继承交流群所有规则。</p>
+                                    </div>
+                                    <div
+                                        class="flex items-start space-x-3 p-4 bg-white rounded-lg border border-purple-100">
+                                        <div
+                                            class="flex-shrink-0 w-6 h-6 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-sm font-semibold">
+                                            2</div>
+                                        <p class="text-gray-700 leading-relaxed">
+                                            禁止以任何不正当或违法方式获得优势（如外挂、矿透、恶意利用Bug，不包括MC原版特性）。</p>
+                                    </div>
+                                    <div
+                                        class="flex items-start space-x-3 p-4 bg-white rounded-lg border border-purple-100">
+                                        <div
+                                            class="flex-shrink-0 w-6 h-6 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-sm font-semibold">
+                                            3</div>
+                                        <p class="text-gray-700 leading-relaxed">禁止在未经过同意下，破坏他人建筑或盗窃物品。</p>
+                                    </div>
+                                    <div
+                                        class="flex items-start space-x-3 p-4 bg-white rounded-lg border border-purple-100">
+                                        <div
+                                            class="flex-shrink-0 w-6 h-6 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-sm font-semibold">
+                                            4</div>
+                                        <p class="text-gray-700 leading-relaxed">
+                                            禁止在未经过同意下影响服务器正常运行（如卡服、DDOS及其他网络攻击）。</p>
+                                    </div>
+                                    <div
+                                        class="flex items-start space-x-3 p-4 bg-white rounded-lg border border-purple-100">
+                                        <div
+                                            class="flex-shrink-0 w-6 h-6 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-sm font-semibold">
+                                            5</div>
+                                        <p class="text-gray-700 leading-relaxed">禁止以任何不当形式影响他人游玩体验。</p>
+                                    </div>
+                                    <div
+                                        class="flex items-start space-x-3 p-4 bg-white rounded-lg border border-purple-100">
+                                        <div
+                                            class="flex-shrink-0 w-6 h-6 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-sm font-semibold">
+                                            6</div>
+                                        <p class="text-gray-700 leading-relaxed">禁止滥用管理员权限。</p>
+                                    </div>
+                                    <div
+                                        class="flex items-start space-x-3 p-4 bg-white rounded-lg border border-purple-100">
+                                        <div
+                                            class="flex-shrink-0 w-6 h-6 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-sm font-semibold">
+                                            7</div>
+                                        <p class="text-gray-700 leading-relaxed">判罚根据严重程度，可能面临警告、多次警告后封禁，或1天至永久的封禁。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div
+                                class="text-center p-6 bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl border border-amber-200">
+                                <div
+                                    class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span class="text-2xl">⚠️</span>
+                                </div>
+                                <h4 class="font-semibold text-gray-900 mb-2">规则生效</h4>
+                                <p class="text-sm text-gray-600">修改后3天生效</p>
+                            </div>
+                            <div
+                                class="text-center p-6 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl border border-blue-200">
+                                <div
+                                    class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span class="text-2xl">📅</span>
+                                </div>
+                                <h4 class="font-semibold text-gray-900 mb-2">更新时间</h4>
+                                <p class="text-sm text-gray-600">2025/3/29 18:16</p>
+                            </div>
+                            <div
+                                class="text-center p-6 bg-gradient-to-br from-red-50 to-pink-50 rounded-xl border border-red-200">
+                                <div
+                                    class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span class="text-2xl">⚖️</span>
+                                </div>
+                                <h4 class="font-semibold text-gray-900 mb-2">判罚说明</h4>
+                                <p class="text-sm text-gray-600">根据情况而定</p>
+                            </div>
+                        </div>
+        </div>
+        </section>
+        </section>
+        <section id="feedback">
+            <section class="py-20 bg-gradient-to-br from-indigo-50 to-purple-50">
+                <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"><span
+                                class="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">社区反馈</span>
+                        </h2>
+                        <div class="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <div class="space-y-8">
+                            <div class="bg-white rounded-2xl p-8 shadow-xl border border-indigo-100">
+                                <div class="flex items-center space-x-3 mb-6">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-message-square text-indigo-600">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z">
+                                        </path>
+                                    </svg>
+                                    <h3 class="text-2xl font-bold text-gray-900">内容反馈机制</h3>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed mb-8">
+                                    玩家可在交流群内提出意见并创建投票，以确认是否进行改变。内容变更需考虑是否符合服务器规则、是否影响玩家平等性、游戏难度以及对其他玩法的影响。</p>
+                                <div
+                                    class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-6 border border-indigo-200">
+                                    <h4 class="text-lg font-semibold text-gray-900 mb-4 flex items-center space-x-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-vote text-indigo-600">
+                                            <path d="m9 12 2 2 4-4"></path>
+                                            <path d="M5 7c0-1.1.9-2 2-2h10a2 2 0 0 1 2 2v12H5V7Z"></path>
+                                            <path d="M22 19H2"></path>
+                                        </svg><span>投票决定因素</span>
+                                    </h4>
+                                    <ul class="space-y-3">
+                                        <li class="flex items-start space-x-3">
+                                            <div
+                                                class="flex-shrink-0 w-5 h-5 bg-indigo-500 rounded-full flex items-center justify-center mt-0.5">
+                                                <span class="text-white text-xs font-bold">1</span>
+                                            </div><span class="text-gray-700">投票支持/反对占比（支持人数占比达到60%以上）</span>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <div
+                                                class="flex-shrink-0 w-5 h-5 bg-indigo-500 rounded-full flex items-center justify-center mt-0.5">
+                                                <span class="text-white text-xs font-bold">2</span>
+                                            </div><span class="text-gray-700">是否符合服务器规则（第一部分和第二部分）</span>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <div
+                                                class="flex-shrink-0 w-5 h-5 bg-indigo-500 rounded-full flex items-center justify-center mt-0.5">
+                                                <span class="text-white text-xs font-bold">3</span>
+                                            </div><span class="text-gray-700">投票参与人数（尽量在8人以上）</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-2xl p-8 shadow-xl border border-purple-100">
+                                <div class="flex items-center space-x-3 mb-6">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-calendar text-purple-600">
+                                        <path d="M8 2v4"></path>
+                                        <path d="M16 2v4"></path>
+                                        <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                                        <path d="M3 10h18"></path>
+                                    </svg>
+                                    <h3 class="text-2xl font-bold text-gray-900">玩家自主活动举办</h3>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed">
+                                    玩家可在群里提出并组织活动，分为长期和短期活动。需负责环节设计、奖励设定及时间安排。玩家自主举办的活动同样需要通过投票决定。</p>
+                            </div>
+                        </div>
+                        <div class="space-y-6">
+                            <h3 class="text-2xl font-bold text-gray-900 text-center mb-8">反馈要求</h3>
+                            <div
+                                class="bg-white rounded-2xl p-6 shadow-xl border border-blue-100 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+                                <div class="flex items-start space-x-4">
+                                    <div class="p-3 bg-blue-50 rounded-xl">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-users text-blue-500">
+                                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="9" cy="7" r="4"></circle>
+                                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-semibold text-gray-900 mb-2">投票参与人数要求：8人以上</h4>
+                                        <p class="text-sm text-gray-600">需要足够的社区参与度</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-white rounded-2xl p-6 shadow-xl border border-green-100 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+                                <div class="flex items-start space-x-4">
+                                    <div class="p-3 bg-green-50 rounded-xl">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-bar-chart text-green-500">
+                                            <line x1="12" x2="12" y1="20" y2="10"></line>
+                                            <line x1="18" x2="18" y1="20" y2="4"></line>
+                                            <line x1="6" x2="6" y1="20" y2="16"></line>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-semibold text-gray-900 mb-2">内容反馈投票通过率：支持人数占比达到60%以上
+                                        </h4>
+                                        <p class="text-sm text-gray-600">确保社区大多数支持</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-white rounded-2xl p-6 shadow-xl border border-purple-100 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+                                <div class="flex items-start space-x-4">
+                                    <div class="p-3 bg-purple-50 rounded-xl">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-clock text-purple-500">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <polyline points="12 6 12 12 16 14"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-semibold text-gray-900 mb-2">投票决定发布时间：投票结束后7到31天内尽量推出
+                                        </h4>
+                                        <p class="text-sm text-gray-600">合理的时间安排</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl p-8 text-white">
+                                <h4 class="text-xl font-bold mb-6">投票数据统计</h4>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="text-center">
+                                        <div class="text-3xl font-bold mb-2">
+                                            60%
+                                        </div>
+                                        <div class="text-sm opacity-90">
+                                            通过阈值
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-3xl font-bold mb-2">
+                                            8+
+                                        </div>
+                                        <div class="text-sm opacity-90">
+                                            参与人数
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-3xl font-bold mb-2">
+                                            7-31
+                                        </div>
+                                        <div class="text-sm opacity-90">
+                                            实施天数
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-3xl font-bold mb-2">
+                                            3
+                                        </div>
+                                        <div class="text-sm opacity-90">
+                                            生效天数
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-16 text-center">
+                        <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-200 max-w-2xl mx-auto">
+                            <div class="text-4xl mb-4">
+                                🗣️
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">参与社区决策</h3>
+                            <p class="text-gray-600 mb-6">您的声音很重要！加入我们的交流群，参与服务器的未来发展。</p>
+                            <div class="flex justify-center space-x-4 text-3xl">
+                                <span class="animate-pulse">✨</span><span class="animate-pulse"
+                                    style="animation-delay: 0.5s;">🎆</span><span class="animate-pulse"
+                                    style="animation-delay: 1s;">🎉</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <section id="join">
+            <section class="py-20 bg-gradient-to-br from-green-50 to-blue-50">
+                <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"><span
+                                class="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">加入我们</span>
+                        </h2>
+                        <div class="w-24 h-1 bg-gradient-to-r from-green-500 to-blue-500 mx-auto rounded-full mb-6">
+                        </div>
+                        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                            欢迎加入InfMinecraft服务器社区！通过QQ审核群了解更多信息并开始您的Minecraft冒险之旅。</p>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-8">
+                            <div class="bg-white rounded-2xl p-8 shadow-xl border border-green-100">
+                                <div class="flex items-center space-x-3 mb-6">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-users text-green-600">
+                                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                    <h3 class="text-2xl font-bold text-gray-900">社区介绍</h3>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed mb-6">
+                                    我们是一个友好、活跃的Minecraft社区，致力于为玩家提供最好的游戏体验。无论您是新手还是老玩家，都能在这里找到属于自己的乐趣。</p>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                                        <div class="text-blue-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-users ">
+                                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                                <circle cx="9" cy="7" r="4"></circle>
+                                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <div class="font-bold text-gray-900">
+                                                200+
+                                            </div>
+                                            <div class="text-sm text-gray-600">
+                                                活跃玩家
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                                        <div class="text-red-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-heart ">
+                                                <path
+                                                    d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <div class="font-bold text-gray-900">
+                                                24/7
+                                            </div>
+                                            <div class="text-sm text-gray-600">
+                                                在线时间
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                                        <div class="text-yellow-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-star ">
+                                                <polygon
+                                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                                </polygon>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <div class="font-bold text-gray-900">
+                                                4.9/5
+                                            </div>
+                                            <div class="text-sm text-gray-600">
+                                                服务器评分
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                                        <div class="text-green-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-message-circle ">
+                                                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <div class="font-bold text-gray-900">
+                                                实时
+                                            </div>
+                                            <div class="text-sm text-gray-600">
+                                                社区反馈
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <div
+                                    class="flex items-center space-x-4 p-4 bg-white rounded-lg shadow-md border border-gray-100">
+                                    <span class="text-2xl">🎉</span><span
+                                        class="text-gray-700 font-medium">友好的社区氛围</span>
+                                </div>
+                                <div
+                                    class="flex items-center space-x-4 p-4 bg-white rounded-lg shadow-md border border-gray-100">
+                                    <span class="text-2xl">🔒</span><span
+                                        class="text-gray-700 font-medium">安全的游戏环境</span>
+                                </div>
+                                <div
+                                    class="flex items-center space-x-4 p-4 bg-white rounded-lg shadow-md border border-gray-100">
+                                    <span class="text-2xl">💬</span><span
+                                        class="text-gray-700 font-medium">实时的技术支持</span>
+                                </div>
+                                <div
+                                    class="flex items-center space-x-4 p-4 bg-white rounded-lg shadow-md border border-gray-100">
+                                    <span class="text-2xl">⚖️</span><span
+                                        class="text-gray-700 font-medium">公平的游戏规则</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-8">
+                            <div
+                                class="bg-gradient-to-br from-green-500 to-blue-600 rounded-2xl p-8 text-white shadow-2xl transform hover:scale-105 transition-all duration-300">
+                                <div class="text-center">
+                                    <div
+                                        class="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                            viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-message-circle text-white">
+                                            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-2xl font-bold mb-4">QQ审核群</h3>
+                                    <p class="text-green-100 mb-8">通过QQ审核群加入我们，开始您的Minecraft之旅！</p><button
+                                        class="group w-full bg-white text-green-600 px-8 py-4 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-3"
+                                        onclick="redirect(1)"><span>点击进入审核群</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-external-link group-hover:translate-x-1 transition-transform">
+                                            <path d="M15 3h6v6"></path>
+                                            <path d="M10 14 21 3"></path>
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6">
+                                            </path>
+                                        </svg></button>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-2xl p-6 shadow-xl border border-gray-200">
+                                <h4 class="text-lg font-semibold text-gray-900 mb-4 flex items-center space-x-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-message-circle text-blue-500">
+                                        <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+                                    </svg><span>联系我们</span>
+                                </h4>
+                                <div class="space-y-3">
+                                    <div class="flex items-center space-x-3">
+                                        <span class="text-sm text-gray-600">服务器名称：</span><span
+                                            class="text-sm font-medium text-gray-900">InfMinecraft</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <span class="text-sm text-gray-600">联系方式：</span><span
+                                            class="text-sm font-medium text-gray-900">QQ审核群</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <span class="text-sm text-gray-600">服务器类型：</span><span
+                                            class="text-sm font-medium text-gray-900">SMP 生存服</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-16 text-center">
+                        <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-200 max-w-3xl mx-auto">
+                            <div class="flex justify-center space-x-4 text-4xl mb-6">
+                                <span class="animate-bounce">🎆</span><span class="animate-bounce"
+                                    style="animation-delay: 0.2s;">✨</span><span class="animate-bounce"
+                                    style="animation-delay: 0.4s;">🎉</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">加入我们，开始你的冒险！</h3>
+                            <p class="text-gray-600 mb-6">在InfMinecraft，每一次登录都是一次新的冒险。与全球玩家一起探索、建造和创造属于你的传奇故事！
+                            </p><button
+                                class="bg-gradient-to-r from-green-500 to-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+                                onclick="scrollToLine('join')">现在就加入
+                                →</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+        </main>
+        <footer class="bg-gradient-to-br from-gray-900 to-black text-white py-16" id="footer">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                    <div class="lg:col-span-2">
+                        <div class="flex items-center space-x-3 mb-6">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-600 rounded-lg flex items-center justify-center">
+                                <span class="text-white font-bold text-xl">M</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">InfMinecraft</h3>
+                                <p class="text-gray-400 text-sm">我的世界服务器</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 leading-relaxed mb-6 max-w-md">
+                            为玩家提供安全、有趣的Minecraft多人游戏体验。加入我们的社区，开始您的冒险之旅！</p>
+                        <div class="flex space-x-4">
+                            <div class="flex items-center space-x-2 bg-gray-800 px-3 py-1 rounded-full">
+                                <span class="text-sm">🎉</span><span class="text-xs text-gray-300">Fun</span>
+                            </div>
+                            <div class="flex items-center space-x-2 bg-gray-800 px-3 py-1 rounded-full">
+                                <span class="text-sm">🔒</span><span class="text-xs text-gray-300">Secure</span>
+                            </div>
+                            <div class="flex items-center space-x-2 bg-gray-800 px-3 py-1 rounded-full">
+                                <span class="text-sm">💬</span><span class="text-xs text-gray-300">Support</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">快速链接</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#home"
+                                    class="text-gray-400 hover:text-green-400 transition-colors text-sm">首页</a></li>
+                            <li><a href="#rules"
+                                    class="text-gray-400 hover:text-green-400 transition-colors text-sm">规则文档</a>
+                            </li>
+                            <li><a href="#feedback"
+                                    class="text-gray-400 hover:text-green-400 transition-colors text-sm">社区反馈</a>
+                            </li>
+                            <li><a href="#join"
+                                    class="text-gray-400 hover:text-green-400 transition-colors text-sm">加入我们</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">联系信息</h4>
+                        <ul class="space-y-3">
+                            <li class="text-gray-400 text-sm"><span class="text-gray-500">服务器名称：</span><br>InfMinecraft
+                            </li>
+                            <li class="text-gray-400 text-sm"><span class="text-gray-500">联系方式：</span><br>QQ审核群</li>
+                            <li class="text-gray-400 text-sm"><span class="text-gray-500">游戏类型：</span><br>SMP 生存服务器
+                            </li>
+                            <li class="text-gray-400 text-sm"><span class="text-gray-500">在线时间：</span><br>24/7 全天候在线
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-800 my-8"></div>
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div class="flex items-center space-x-4">
+                        <p class="text-gray-400 text-sm">Copyright © 2025 IceWars1o1</p><span
+                            class="text-gray-600">|</span>
+                        <p class="text-gray-400 text-sm">保留所有权利</p>
+                    </div>
+                    <div class="flex items-center space-x-6">
+                        <button
+                            class="flex items-center space-x-2 text-gray-400 hover:text-green-400 transition-colors text-sm"
+                            onclick="redirect(0)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-github ">
+                                <path
+                                    d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
+                                </path>
+                                <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                            </svg><span>MIT License</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewbox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-external-link ">
+                                <path d="M15 3h6v6"></path>
+                                <path d="M10 14 21 3"></path>
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            </svg></button>
+                        <div class="flex items-center space-x-2 text-gray-400 text-sm">
+                            <span>由</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewbox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-heart text-red-500">
+                                <path
+                                    d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z">
+                                </path>
+                            </svg><span>制作</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <div class="flex justify-center space-x-4 text-3xl opacity-30">
+                        <span class="animate-pulse">⛏️</span><span class="animate-pulse"
+                            style="animation-delay: 0.5s;">🏗️</span><span class="animate-pulse"
+                            style="animation-delay: 1s;">⚔️</span><span class="animate-pulse"
+                            style="animation-delay: 1.5s;">🛡️</span><span class="animate-pulse"
+                            style="animation-delay: 2s;">💨</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div id="loading-overlay" class="fixed inset-0 bg-white z-50 flex items-center justify-center hidden">
+            <div class="text-center">
+                <div
+                    class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mb-4 mx-auto animate-pulse">
+                    <span class="text-white font-bold text-2xl">M</span>
+                </div>
+                <p class="text-gray-600">Loading...</p>
+            </div>
+        </div>
+    </div>
+    </div>
 </body>
 
 </html>

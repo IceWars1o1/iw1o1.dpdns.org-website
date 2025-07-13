@@ -41,13 +41,13 @@
                   </div>
                   
                   <div class="link-list">
-                      <a href="https://num-guess.iw1o1.dpdns.org/number_guessing/" class="nav-link" target="_blank">
+                      <a href="https://num-guess.iw1o1.dpdns.org/number_guessing/" class="nav-link" target="_self">
                           <i class="fas fa-dice"></i>
                           <span>猜数字游戏（SingleFile）</span>
                           <i class="fas fa-external-link-alt external-icon"></i>
                       </a>
                       
-                      <a href="https://num-guess.iw1o1.dpdns.org/numGuessing/" class="nav-link" target="_blank">
+                      <a href="https://num-guess.iw1o1.dpdns.org/numGuessing/" class="nav-link" target="_self">
                           <i class="fas fa-dice"></i>
                           <span>猜数字游戏（MultiFile）</span>
                           <i class="fas fa-external-link-alt external-icon"></i>
@@ -75,13 +75,13 @@
                     </div>
                     
                     <div class="link-list">
-                        <a href="https://infmc.iw1o1.dpdns.org/" class="nav-link" target="_blank">
+                        <a href="https://infmc.iw1o1.dpdns.org/" class="nav-link" target="_self">
                             <i class="fas fa-user"></i>
                             <span>个人（infmc.iw1o1.dpdns.org）</span>
                             <i class="fas fa-external-link-alt external-icon"></i>
                         </a>
                         
-                        <a href="https://infmc.dpdns.org/" class="nav-link" target="_blank">
+                        <a href="https://infmc.dpdns.org/" class="nav-link" target="_self">
                             <i class="fas fa-users"></i>
                             <span>集体（infmc.dpdns.org）</span>
                             <i class="fas fa-external-link-alt external-icon"></i>
@@ -92,13 +92,13 @@
 
             <!-- 直接链接 -->
             <div class="direct-links">
-              <a href="https://prince.iw1o1.dpdns.org/" class="nav-link direct-link" target="_blank">
+              <a href="https://prince.iw1o1.dpdns.org/" class="nav-link direct-link" target="_self">
                   <i class="fas fa-crown"></i>
                   <span>小王子笔记</span>
                   <i class="fas fa-external-link-alt external-icon"></i>
               </a>
               
-              <a href="https://daily-quotes.iw1o1.dpdns.org/" class="nav-link direct-link" target="_blank">
+              <a href="https://daily-quotes.iw1o1.dpdns.org/" class="nav-link direct-link" target="_self">
                   <i class="fas fa-quote-left"></i>
                   <span>每日一句</span>
                   <i class="fas fa-external-link-alt external-icon"></i>
@@ -200,7 +200,7 @@ function initFloatingBall() {
   const ballContent = ball.querySelector('.minimax-ball-content');
   ballContent.addEventListener('click', function (e) {
     e.stopPropagation();
-    window.open('https://agent.minimax.io/agent', '_blank');
+    window.open('https://agent.minimax.io/agent', '_self');
     ball.style.transform = 'scale(0.95)';
     setTimeout(() => {
       ball.style.transform = 'scale(1)';

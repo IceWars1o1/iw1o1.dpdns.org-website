@@ -163,10 +163,10 @@ function initializeAccessibility() {
     const externalLinks = document.querySelectorAll('a[target="_blank"]');
     externalLinks.forEach(link => {
         const linkText = link.querySelector('span').textContent;
-        link.setAttribute('aria-label', `${linkText} (在新窗口中打开)`);
+        link.setAttribute('aria-label', `${linkText} (在当前窗口中打开)`);
         
         // 添加视觉指示器说明
-        link.setAttribute('title', '点击在新窗口中打开');
+        link.setAttribute('title', '点击在当前窗口中打开');
     });
     
     // 为目录标题添加描述

@@ -102,6 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
     showSection('rule-overview');
+    showVideo('localvideo');
     const defaultBtn = document.querySelector('button[onclick="showSection(\'rule-overview\')"]');
 
 });
@@ -134,6 +135,30 @@ function showSection(id) {
         activeBtn.classList.add('bg-white', 'text-blue-600', 'shadow-md');
     }
 }
+function showVideo(id) {
+    // 隐藏所有视频区块
+    document.querySelectorAll('.video-container').forEach(video => {
+        video.style.display = 'none';
+    });
+
+    // 显示目标区块
+    document.getElementById(id).style.display = 'block';
+
+    // 重置所有按钮为初始样式
+    document.querySelectorAll('.video-btn').forEach(btn => {
+        btn.classList.remove('bg-white', 'text-blue-600', 'shadow-md');
+        btn.classList.add('text-gray-600', 'hover:text-blue-600');
+    });
+
+    // 找到当前按钮并添加激活样式
+    const activeBtn = document.querySelector(`button[onclick="showVideo('${id}')"]`);
+    if (activeBtn) {
+        activeBtn.classList.remove('text-gray-600', 'hover:text-blue-600');
+        activeBtn.classList.add('bg-white', 'text-blue-600', 'shadow-md');
+    }
+}
+
+
 function redirect(urlNum) {
     if (urlNum === 0) {
         window.location.href = "https://iw1o1.dpdns.org/copyright";

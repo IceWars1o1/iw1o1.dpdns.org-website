@@ -1386,8 +1386,14 @@ to {
   overflow: hidden;
   border-radius: 10px;
 }
-.video-container video {
+.video-container video, .video-container iframe {
   width: 100%;
   height: 100%;
   object-fit: cover; /* 确保视频填充整个容器 */
+}
+.video-btn {
+    @apply px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-blue-600 rounded-lg transition-colors;
+}
+.video-btn.active {
+    @apply bg-white text-blue-600 shadow-md;
 }

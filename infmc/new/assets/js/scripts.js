@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
     </div>
     <nav class="flex flex-col p-4 space-y-2">
         <a href="#home" onclick="scrollToLine('home')"class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">首页</a>
-        <a href="#features" class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">本服特色</a>
+        <a href="#features" class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">本服介绍</a>
         <a href="#rules" class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">规则文档</a>
         <a href="#feedback" class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">社区反馈</a>
         <a href="#join" class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">加入我们</a>

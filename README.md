@@ -18,7 +18,7 @@
 
 ## Update
 - Version: 0.3.2-202507131345-release1
-- Date: 07/13/2025
-- Release Time: 16:45, Unix Timestamp: 1752396313
+- Date: 07/14/2025
+- Release Time: 12:03, Unix Timestamp: 1752465798
 - Release Master: IceWars1o1 (Email: abqyc@outlook.com, User: https://github.com/DanMoAB/)
-- Commit Message: Added Promotional Videos
+- Commit Message: Fixed Known Issues

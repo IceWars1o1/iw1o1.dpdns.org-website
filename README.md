@@ -17,7 +17,7 @@
 - Of course you can fork it! This object is licensed under the MIT LICENSE, so you could fork it and edit only if you license it under the same license template. 
 
 ## Update
-- Version: 0.3.2-202507131345-release1
+- Version: 0.3.2-202507141203-release0
 - Date: 07/14/2025
 - Release Time: 12:03, Unix Timestamp: 1752465798
 - Release Master: IceWars1o1 (Email: abqyc@outlook.com, User: https://github.com/DanMoAB/)

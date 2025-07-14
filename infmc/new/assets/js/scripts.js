@@ -118,23 +118,22 @@ function showSection(id) {
     document.querySelectorAll('.rules').forEach(section => {
         section.style.display = 'none';
     });
-
-    // 显示目标区块
     document.getElementById(id).style.display = 'block';
 
-    // 重置所有按钮为初始样式
-    document.querySelectorAll('.flex button').forEach(btn => {
+    // 只重置规则按钮的样式
+    document.querySelectorAll('.rule-btn').forEach(btn => {
         btn.classList.remove('bg-white', 'text-blue-600', 'shadow-md');
         btn.classList.add('text-gray-600', 'hover:text-blue-600');
     });
 
-    // 找到当前按钮并添加激活样式
-    const activeBtn = document.querySelector(`button[onclick="showSection('${id}')"]`);
+    // 给当前规则按钮加激活样式
+    const activeBtn = document.querySelector(`.rule-btn[onclick="showSection('${id}')"]`);
     if (activeBtn) {
         activeBtn.classList.remove('text-gray-600', 'hover:text-blue-600');
         activeBtn.classList.add('bg-white', 'text-blue-600', 'shadow-md');
     }
 }
+
 function showVideo(id) {
     // 隐藏所有视频区块
     document.querySelectorAll('.video-container').forEach(video => {

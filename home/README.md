@@ -69,7 +69,7 @@ icewars1o1-index/
         </div>
         
         <div class="link-list">
-            <a href="https://example.com" class="nav-link" target="_blank">
+            <a href="https://example.com" class="nav-link" target="_self">
                 <i class="fas fa-link"></i>
                 <span>链接名称</span>
                 <i class="fas fa-external-link-alt external-icon"></i>
@@ -79,7 +79,7 @@ icewars1o1-index/
 </div>
 
 <!-- 直接链接 -->
-<a href="https://example.com" class="nav-link direct-link" target="_blank">
+<a href="https://example.com" class="nav-link direct-link" target="_self">
     <i class="fas fa-link"></i>
     <span>直接链接名称</span>
     <i class="fas fa-external-link-alt external-icon"></i>

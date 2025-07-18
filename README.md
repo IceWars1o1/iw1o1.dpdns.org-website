@@ -20,5 +20,5 @@
 - Version: 0.3.2-202507181120-release0
 - Date: 07/17/2025
 - Release Time: 11:20, Unix Timestamp: 1752808804
-- Release Master: IceWars1o1 (Email: abqyc@outlook.com, User: https://github.com/DanMoAB/)
+- Release Editor: IceWars1o1 (Email: abqyc@outlook.com, User: https://github.com/DanMoAB/)
 - Commit Message: Fixed Known Issues

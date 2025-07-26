@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="flex justify-between items-center p-4 border-b border-gray-200">
         <div class="flex items-center space-x-3">
         <div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0">
-            <img src="https://infmc.dpdns.org/new/images/logo.jpg" alt="Logo" class="w-full h-full object-cover">
+            <img src="./images/logo.jpg" alt="Logo" class="w-full h-full object-cover">
         </div>
-        <span class="text-lg font-bold text-gray-900">InfMinecraft</span>
+        <span class="text-lg font-bold text-gray-900">原版优化整合包</span>
         </div>
         <button id="mobile-close-button" class="p-2 text-gray-600 hover:text-green-600">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
@@ -26,10 +26,9 @@ document.addEventListener('DOMContentLoaded', function () {
     </div>
     <nav class="flex flex-col p-4 space-y-2">
         <a href="#home" onclick="scrollToLine('home')"class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">首页</a>
-        <a href="#features" class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">本服介绍</a>
-        <a href="#rules" class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">规则文档</a>
-        <a href="#feedback" class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">社区反馈</a>
-        <a href="#join" class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">加入我们</a>
+        <a href="#features" class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">介绍</a>
+        <a href="#feedback" class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">问题反馈</a>
+        <a href="#join" class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">立即使用</a>
     </nav>
     `;
 

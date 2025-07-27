@@ -1,5 +1,5 @@
 // 等待DOM加载完成
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     // 获取移动端菜单按钮和导航菜单
     const mobileMenuButton = document.querySelector('button[class*="md:hidden"]');
     const navMenu = document.querySelector('nav[class*="md:flex"]');
@@ -25,10 +25,12 @@ document.addEventListener('DOMContentLoaded', function () {
         </button>
     </div>
     <nav class="flex flex-col p-4 space-y-2">
-        <a href="#home" onclick="scrollToLine('home')"class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">首页</a>
+        <a href="#home" onclick="scrollToLine('home')" class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">首页</a>
         <a href="#features" class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">介绍</a>
         <a href="#feedback" class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">问题反馈</a>
         <a href="#join" class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">立即使用</a>
+        <a href="./changelog" class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">更新日志</a>
+
     </nav>
     `;
 
@@ -67,14 +69,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // 点击菜单外部关闭菜单
-    mobileMenuContainer.addEventListener('click', function (e) {
+    mobileMenuContainer.addEventListener('click', function(e) {
         if (e.target === mobileMenuContainer) {
             closeMobileMenu();
         }
     });
 
     // 窗口大小改变时重置
-    window.addEventListener('resize', function () {
+    window.addEventListener('resize', function() {
         if (window.innerWidth >= 768) {
             closeMobileMenu();
         }
@@ -83,9 +85,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // 为所有导航链接添加平滑滚动
     const allNavLinks = document.querySelectorAll('a[href^="#"]');
     allNavLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
+        link.addEventListener('click', function(e) {
             e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
+            const targetId = this.getAttribute('href')
+                .substring(1);
             const targetElement = document.getElementById(targetId);
 
             if (targetElement) {
@@ -102,10 +105,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
+
 function scrollToLine(lineId) {
     const target = document.getElementById(lineId);
     if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
+        target.scrollIntoView({
+            behavior: 'smooth'
+        });
     }
 }
 
@@ -125,6 +131,11 @@ function redirect(urlNum) {
     if (urlNum === 13) {
         window.location.href = "https://share.feijipan.com/s/IMAlO5Fe";
     }
+    
+    if (urlNum === 20) {
+        window.location.href = "./changelog/";
+    }
+    
 }
 const navBtns = document.querySelectorAll('.nav-btn');
 const sections = ['home', 'features', 'rules', 'feedback', 'join', 'footer'];
@@ -132,8 +143,10 @@ const sections = ['home', 'features', 'rules', 'feedback', 'join', 'footer'];
 const setActiveNav = () => {
     let current = '';
     const footer = document.getElementById('footer'); // 获取页脚元素
-    const footerTop = footer.getBoundingClientRect().top;
-    const footerBottom = footer.getBoundingClientRect().bottom;
+    const footerTop = footer.getBoundingClientRect()
+        .top;
+    const footerBottom = footer.getBoundingClientRect()
+        .bottom;
 
     // 检查是否滚动到页脚区域
     if (footerTop <= 120 && footerBottom >= 120) {

@@ -51,14 +51,13 @@
       container.innerHTML = '<div class="loading">加载中...</div>';
 
       try {
-        const response = await fetch('https://cysunk.mlzi.top/vanilla_optimizations/changelog/api/logs.php');
+        const response = await fetch('/changelog/dev/api/logs');
         const data = await response.json();
 
         if (!data.success || !Array.isArray(data.logs)) {
           throw new Error('日志格式错误');
         }
 
-        // 倒序排列（最新在前）
         const logs = data.logs.reverse();
 
         container.innerHTML = '';
@@ -66,10 +65,9 @@
           const item = document.createElement('div');
           item.className = 'log-item';
 
-          // 解码 Unicode 转义字符（如 \u5220\u9664 → 删除）
           const decodedContent = log.content
             .replace(/\\n/g, '\n')
-            .replace(/\\u[\dA-Fa-f]{4}/g, match => 
+            .replace(/\\u[\dA-Fa-f]{4}/g, match =>
               String.fromCharCode(parseInt(match.replace('\\u', ''), 16))
             );
 

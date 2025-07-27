@@ -1,89 +1,98 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <title>更新日志</title>
-  <style>
-    body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: #f9f9f9;
-      margin: 0;
-      padding: 20px;
-    }
-    .log-container {
-      max-width: 800px;
-      margin: auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .log-item {
-      margin-bottom: 20px;
-      border-left: 4px solid #0078d4;
-      padding-left: 12px;
-    }
-    .log-version {
-      font-weight: bold;
-      font-size: 1.2em;
-      color: #0078d4;
-    }
-    .log-content {
-      white-space: pre-wrap;
-      color: #333;
-      margin-top: 4px;
-    }
-    .loading {
-      text-align: center;
-      color: #666;
-    }
-  </style>
-</head>
-<body>
-  <div class="log-container">
-    <h2>更新日志</h2>
-    <div id="logs">加载中...</div>
-  </div>
+    <head>
+        <meta charset="UTF-8">
+        <title>更新日志</title>
+        <style>
+            body {
+                font-family: "Segoe UI", Arial, sans-serif;
+                background: #f9f9f9;
+                margin: 0;
+                padding: 20px;
+            }
+            
+            .log-container {
+                max-width: 800px;
+                margin: auto;
+                background: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+            
+            .log-item {
+                margin-bottom: 20px;
+                border-left: 4px solid #0078d4;
+                padding-left: 12px;
+            }
+            
+            .log-version {
+                font-weight: bold;
+                font-size: 1.2em;
+                color: #0078d4;
+            }
+            
+            .log-content {
+                white-space: pre-wrap;
+                color: #333;
+                margin-top: 4px;
+            }
+            
+            .loading {
+                text-align: center;
+                color: #666;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="log-container">
+            <h2>更新日志</h2>
+            <div id="logs">加载中...</div>
+        </div>
+        <script>
+            async function loadLogs() {
+            const container = document.getElementById('logs');
+            container.innerHTML = '<div class="loading">加载中...</div>';
 
-  <script>
-    async function loadLogs() {
-      const container = document.getElementById('logs');
-      container.innerHTML = '<div class="loading">加载中...</div>';
+            try {
+                const response = await fetch('/changelog/dev/api/logs');
+                const data = await response.json();
 
-      try {
-        const response = await fetch('/changelog/dev/api/logs');
-        const data = await response.json();
+                if (!data.success || !Array.isArray(data.logs)) {
+                    throw new Error('日志格式错误');
+                }
 
-        if (!data.success || !Array.isArray(data.logs)) {
-          throw new Error('日志格式错误');
+                // 按版本号倒序排列（最新版本在前）
+                const logs = data.logs.sort((a, b) => {
+                    // 使用 localeCompare 进行语义化版本号排序
+                    return b.version.localeCompare(a.version, undefined, {
+                        numeric: true
+                    });
+                });
+
+                container.innerHTML = '';
+                logs.forEach(log => {
+                    const item = document.createElement('div');
+                    item.className = 'log-item';
+
+                    const decodedContent = log.content
+                        .replace(/\\n/g, '\n')
+                        .replace(/\\u[\dA-Fa-f]{4}/g, match =>
+                            String.fromCharCode(parseInt(match.replace('\\u', ''), 16))
+                        );
+
+                    item.innerHTML = `
+                    <div class="log-version">${log.version}</div>
+                    <div class="log-content">${decodedContent}</div>
+                `;
+                    container.appendChild(item);
+                });
+
+            } catch (error) {
+                container.innerHTML = `<div class="loading">加载失败：${error.message}</div>`;
+            }
         }
 
-        const logs = data.logs;
-
-        container.innerHTML = '';
-        logs.forEach(log => {
-          const item = document.createElement('div');
-          item.className = 'log-item';
-
-          const decodedContent = log.content
-            .replace(/\\n/g, '\n')
-            .replace(/\\u[\dA-Fa-f]{4}/g, match =>
-              String.fromCharCode(parseInt(match.replace('\\u', ''), 16))
-            );
-
-          item.innerHTML = `
-            <div class="log-version">${log.version}</div>
-            <div class="log-content">${decodedContent}</div>
-          `;
-          container.appendChild(item);
-        });
-
-      } catch (error) {
-        container.innerHTML = `<div class="loading">加载失败：${error.message}</div>`;
-      }
-    }
-
-    loadLogs();
-  </script>
-</body>
+        </script>
+    </body>
 </html>

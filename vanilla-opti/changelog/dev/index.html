@@ -63,12 +63,7 @@
                 }
 
                 // 按版本号倒序排列（最新版本在前）
-                const logs = data.logs.sort((a, b) => {
-                    // 使用 localeCompare 进行语义化版本号排序
-                    return b.version.localeCompare(a.version, undefined, {
-                        numeric: true
-                    });
-                });
+                const logs = data.logs.slice().reverse();
 
                 container.innerHTML = '';
                 logs.forEach(log => {

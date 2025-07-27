@@ -58,7 +58,7 @@
           throw new Error('日志格式错误');
         }
 
-        const logs = data.logs.reverse();
+        const logs = data.logs;
 
         container.innerHTML = '';
         logs.forEach(log => {

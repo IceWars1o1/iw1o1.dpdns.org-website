@@ -77,35 +77,45 @@
   </div>
 
   <script>
-    async function loadLogs(){
-      const container=document.getElementById('logs');
-      container.innerHTML='<div class="loading">加载中...</div>';
-      try{
-        const res=await fetch('/changelog/dev/api/logs');
-        const data=await res.json();
-        if(!data.success||!Array.isArray(data.logs)){
-          throw new Error('日志格式错误');
+  async function loadLogs() {
+    const container = document.getElementById('logs');
+    container.innerHTML = '<div class="loading">加载中...</div>';
+
+    try {
+      const res = await fetch('/changelog/dev/api/logs', {
+        method: 'POST',
+        headers: {
+          'X-API-Key': 'miku_dream_2025_secure_api_v1',
+          'X-Request-Type': 'logs',
+          'Content-Type': 'application/json'
         }
-        container.innerHTML='';
-        data.logs.forEach(log=>{
-          const item=document.createElement('div');
-          item.className='log-item';
-          const decoded=log.content
-            .replace(/\\n/g,'\n')
-            .replace(/\\u[\dA-Fa-f]{4}/g,m=>
-              String.fromCharCode(parseInt(m.replace('\\u',''),16))
-            );
-          item.innerHTML=`
-            <div class="log-version">${log.version}</div>
-            <div class="log-content">${decoded}</div>
-          `;
-          container.appendChild(item);
-        });
-      }catch(err){
-        container.innerHTML=`<div class="loading">加载失败：${err.message}</div>`;
+      });
+
+      const data = await res.json();
+      if (!data.success || !Array.isArray(data.logs)) {
+        throw new Error('返回格式异常');
       }
+
+      const logs = data.logs; // 最新在前，无需 reverse
+      container.innerHTML = '';
+      logs.forEach(log => {
+        const div = document.createElement('div');
+        div.className = 'log-item';
+        div.innerHTML = `
+          <div class="log-version">${log.version}</div>
+          <div class="log-content">${log.content
+            .replace(/\\n/g, '\n')
+            .replace(/\\u[\dA-Fa-f]{4}/g,
+              m => String.fromCharCode(parseInt(m.slice(2), 16)))}
+          </div>`;
+        container.appendChild(div);
+      });
+    } catch (e) {
+      container.innerHTML = `<div class="loading">加载失败：${e.message}</div>`;
     }
-    loadLogs();
-  </script>
+  }
+
+  loadLogs();
+</script>
 </body>
 </html>

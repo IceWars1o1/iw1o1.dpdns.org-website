@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <title>更新日志</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
+<meta charset="UTF-8">
+<title>更新日志</title>
+<style>
     :root{
       --accent:#0078d4;
       --bg:#f5f7fa;
@@ -71,51 +70,43 @@
   </style>
 </head>
 <body>
-  <div class="log-container">
-    <h2>更新日志</h2>
-    <div id="logs">加载中...</div>
-  </div>
+<div class="log-container">
+  <h2>更新日志</h2>
+  <div id="logs">加载中...</div>
+</div>
 
-  <script>
-  async function loadLogs() {
-    const container = document.getElementById('logs');
-    container.innerHTML = '<div class="loading">加载中...</div>';
-
-    try {
-      const res = await fetch('/changelog/dev/api/logs', {
-        method: 'POST',
-        headers: {
-          'X-API-Key': 'miku_dream_2025_secure_api_v1',
-          'X-Request-Type': 'logs',
-          'Content-Type': 'application/json'
-        }
-      });
-
-      const data = await res.json();
-      if (!data.success || !Array.isArray(data.logs)) {
-        throw new Error('返回格式异常');
+<script>
+async function loadLogs() {
+  const container = document.getElementById('logs');
+  container.innerHTML = '<div class="loading">加载中...</div>';
+  try {
+    const res = await fetch('/changelog/dev/api/logs', {
+      method: 'POST',
+      headers: {
+        'X-API-Key': 'miku_dream_2025_secure_api_v1',
+        'X-Request-Type': 'logs',
+        'Content-Type': 'application/json'
       }
+    });
+    const json = await res.json();
+    if (!json.success || !Array.isArray(json.data)) throw new Error('格式异常');
 
-      const logs = data.logs; // 最新在前，无需 reverse
-      container.innerHTML = '';
-      logs.forEach(log => {
-        const div = document.createElement('div');
-        div.className = 'log-item';
-        div.innerHTML = `
-          <div class="log-version">${log.version}</div>
-          <div class="log-content">${log.content
-            .replace(/\\n/g, '\n')
-            .replace(/\\u[\dA-Fa-f]{4}/g,
-              m => String.fromCharCode(parseInt(m.slice(2), 16)))}
-          </div>`;
-        container.appendChild(div);
-      });
-    } catch (e) {
-      container.innerHTML = `<div class="loading">加载失败：${e.message}</div>`;
-    }
+    // data 已经按 id 倒序（最新在前），无需再 reverse
+    container.innerHTML = '';
+    json.data.forEach(item=>{
+      const div = document.createElement('div');
+      div.className = 'log-item';
+      const content = item.content
+        .replace(/\\n/g,'\n')
+        .replace(/\\u[\dA-Fa-f]{4}/g, m=>String.fromCharCode(parseInt(m.slice(2),16)));
+      div.innerHTML = `<div class="log-version">${item.version}</div><div class="log-content">${content}</div>`;
+      container.appendChild(div);
+    });
+  } catch (e) {
+    container.innerHTML = `<div class="loading">加载失败：${e.message}</div>`;
   }
-
-  loadLogs();
+}
+loadLogs();
 </script>
 </body>
 </html>

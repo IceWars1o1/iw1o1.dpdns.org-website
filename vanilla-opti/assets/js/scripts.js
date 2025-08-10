@@ -120,7 +120,7 @@ function redirect(urlNum) {
         window.location.href = "https://iw1o1.dpdns.org/copyright";
     }
     if (urlNum === 10) {
-        window.location.href = "https://qm.qq.com/q/gdgWu3dGmY";
+        window.location.href = "https://qun.qq.com/universal-share/share?ac=1&authKey=j%2BluK8%2FtwwoJNfQ9IHdbb%2B9AKMtKtxxeNFj1MXk217IS1gqUUk0DkPl3k2ynnfAS&busi_data=eyJncm91cENvZGUiOiIxMDMzMjYyMzgzIiwidG9rZW4iOiJSREVnV2JiQU5OZFRpK1g3UUVId1F5RzlMc05nTmk2RU84aVpXU2ZZeFVIVHZRaVFweWRTSjB4TkNEYUNzaVBGIiwidWluIjoiMTA3OTg5MjIzMiJ9&data=ik3Ul6IoNxEbyh1N-x9F15KWYHivJMA-Ap23q4NjfIi2QRPDWw_KldHsdivaHz4UKO9kzUX8l6FCn56AYPDnjg&svctype=4&tempid=h5_group_info";
     }
     if (urlNum === 11) {
         window.location.href = "https://space.bilibili.com/482521515/dynamic";

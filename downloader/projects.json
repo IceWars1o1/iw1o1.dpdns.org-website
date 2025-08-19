@@ -1,0 +1,12 @@
+[
+    {
+        "name":"附加包：Java版进度",
+        "path":"project/Java版进度.mcaddon",
+        "description":"适用于基岩版的Java进度系统"
+    },
+    {
+        "name":"网站源码仓库下载",
+        "path":"https://gh-proxy.com/https://github.com/DanMoAB/iw1o1.dpdns.org-website/archive/refs/heads/master.zip",
+        "description":"-"
+    }
+]

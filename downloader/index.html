@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>项目下载站</title> <!-- Google Font & Icons（可离线化） -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"> <!-- 融合后的完整 CSS（直接内嵌，省一次请求） -->
+        <style>
+
+    /* ===== 变量与通用 =====*/
+    :root {
+        --primary-color:#4361ee;
+        --secondary-color:#3f37c9;
+        --accent-color:#4895ef;
+        --light-color:#f8f9fa;
+        --dark-color:#212529;
+        --success-color:#4cc9f0;
+        --warning-color:#f72585;
+        --danger-color:#f72585;
+        --text-color:#333;
+        --border-color:#ddd;
+        --shadow-color:rgba(0,0,0,.1);
+    }
+    * {
+        margin:0;
+        padding:0;
+        box-sizing:border-box
+    }
+    body {
+        font-family:'Roboto',sans-serif;
+        background:#f5f7fa;
+        color:var(--text-color);
+        line-height:1.6
+    }
+    a {
+        text-decoration:none;
+        color:var(--primary-color)
+    }
+    a:hover {
+        text-decoration:underline
+    }
+    /* ===== 头部 =====*/
+    header {
+        text-align:center;
+        padding:40px 20px;
+        margin-bottom:30px;
+        background:linear-gradient(135deg,var(--primary-color),var(--secondary-color));
+        color:#fff;
+        /*border-radius:10px;*/
+        box-shadow:0 5px 15px var(--shadow-color)
+    }
+    header h1 {
+        font-size:2.5rem;
+        margin-bottom:10px
+    }
+    header p {
+        font-size:1.1rem;
+        opacity:.9
+    }
+    /* ===== 公告栏 =====*/
+    .announcement-bar {
+        background:#fff8e1;
+        border-left:4px solid #ffc107;
+        padding:15px 20px;
+        margin-bottom:30px;
+        border-radius:4px;
+        box-shadow:0 2px 5px var(--shadow-color)
+    }
+    .announcement-bar h3 {
+        color:#ff9800;
+        margin-bottom:10px;
+        font-size:1.2rem
+    }
+    .announcement-bar p {
+        margin-bottom:5px
+    }
+    /* ===== 工具网格 =====*/
+    .tools-grid {
+        display:grid;
+        grid-template-columns:repeat(auto-fill,minmax(350px,1fr));
+        gap:25px;
+        max-width:1200px;
+        margin:0 auto;
+        padding:0 20px
+    }
+    .tool-card {
+        background:#fff;
+        border-radius:10px;
+        overflow:hidden;
+        box-shadow:0 5px 15px var(--shadow-color);
+        transition:transform .3s ease,box-shadow .3s ease
+    }
+    .tool-card:hover {
+        transform:translateY(-5px);
+        box-shadow:0 10px 25px rgba(0,0,0,.15)
+    }
+    .tool-header {
+        display:flex;
+        align-items:center;
+        padding:20px;
+        background:linear-gradient(135deg,var(--primary-color),var(--secondary-color));
+        color:#fff
+    }
+    .tool-icon {
+        width:60px;
+        height:60px;
+        font-size:2rem;
+        margin-right:15px;
+        background:rgba(255,255,255,.2);
+        border-radius:50%;
+        display:flex;
+        align-items:center;
+        justify-content:center
+    }
+    .tool-info h3 {
+        font-size:1.3rem;
+        margin-bottom:5px
+    }
+    .tool-body {
+        padding:20px
+    }
+    .download-way {
+        margin-bottom:20px;
+        color:#555;
+        font-size:0.8rem
+    }
+    .tool-description {
+        margin-bottom:20px;
+        color:#555
+    }
+    .tool-stats {
+        display:flex;
+        justify-content:space-between;
+        margin-bottom:20px;
+        font-size:.9rem
+    }
+    .tool-footer {
+        padding:15px 20px;
+        background:#f8f9fa;
+        border-top:1px solid #eee
+    }
+    .download-btn {
+        display:block;
+        width:100%;
+        padding:12px;
+        background:var(--primary-color);
+        color:#fff;
+        border:none;
+        border-radius:5px;
+        font-size:1rem;
+        cursor:pointer;
+        text-align:center;
+        transition:background .3s ease
+    }
+    .download-btn:hover {
+        background:var(--secondary-color)
+    }
+    /* ===== 页脚 =====*/
+    .footer {
+        text-align:center;
+        margin:50px 0 20px;
+        font-size:.9rem;
+        color:#666
+    }
+    /* ===== 响应式 =====*/
+    @media(max-width:768px) {
+        .tools-grid {
+            grid-template-columns:1fr
+        }
+    }
+  </style>
+    </head>
+    <body><!-- 头部 -->
+        <header>
+            <h1><i class="fas fa-download"></i> 项目下载站</h1>
+            <p>汇聚精选资源 · 一键高速下载</p>
+        </header> <!-- 公告栏（可随意改） -->
+        <div class="announcement-bar">
+            <h3><i class="fas fa-bullhorn"></i> 公告</h3>
+            <p>1. 所有资源均来自官方或开源仓库，仅供学习交流。</p>
+            <p>2. 如遇下载异常，请尝试更换浏览器或反馈给管理员。</p>
+        </div> <!-- 项目列表容器 -->
+        <div id="tools-grid" class="tools-grid"><!-- 由 JS 动态填充 -->
+        </div> <!-- 页脚 -->
+        <footer class="footer">
+            © 2025 · Crafted with <i class="fas fa-heart" style="color:#f72585"></i> · <a href="mailto:abqyc@outlook.com">联系站主</a>
+        </footer> <!-- 脚本：读取 projects.json 并渲染卡片 --> <!--<script>
+  fetch('./projects.json')
+    .then(r => r.json())
+    .then(list => {
+      const grid = document.getElementById('tools-grid');
+      if(!Array.isArray(list) || list.length === 0){
+        grid.innerHTML='<p style="text-align:center;color:#666">暂无项目</p>';
+        return;
+      }
+      list.forEach(({name, path, description}, idx) => {
+        const ext = path.split('.').pop().toUpperCase();
+        const card = document.createElement('div');
+        card.className = 'tool-card';
+        card.innerHTML = `
+          <div class="tool-header">
+            <div class="tool-icon"><i class="fas fa-file-archive"></i></div>
+            <div class="tool-info">
+              <h3>${name}</h3>
+              <span>格式：${ext}</span>
+            </div>
+          </div>
+          <div class="tool-body">
+            <p class="tool-description">${description}</p>
+          </div>
+          <div class="tool-footer">
+            <a class="download-btn" href="${path}" download>
+              <i class="fas fa-download"></i> 立即下载
+            </a>
+          </div>`;
+        grid.appendChild(card);
+      });
+    })
+    .catch(err=>{
+      document.getElementById('tools-grid').innerHTML=
+        '<p style="text-align:center;color:#e74c3c">读取 projects.json 失败，请检查文件是否存在及格式是否正确。</p>';
+    });
+  </script>-->
+        <script>
+    /* 支持的远程协议 */
+    const remoteProtocols = ['http://', 'https://', 'ftp://', 'sftp://'];
+    
+    /* 判断是否为远程链接 */
+    function isRemote(url) {
+      return remoteProtocols.some(p => url.trim().toLowerCase().startsWith(p));
+    }
+    
+    /* 渲染卡片 */
+    fetch('./projects.json')
+      .then(r => r.json())
+      .then(list => {
+        const grid = document.getElementById('tools-grid');
+        if (!Array.isArray(list) || list.length === 0) {
+          grid.innerHTML = '<p style="text-align:center;color:#666">暂无项目</p>';
+          return;
+        }
+    
+        list.forEach(({ name, path, description }) => {
+          const ext = (path.split('.').pop() || '').toUpperCase();
+          const remote = isRemote(path);
+    
+          const card = document.createElement('div');
+          card.className = 'tool-card';
+          card.innerHTML = `
+            <div class="tool-header">
+              <div class="tool-icon"><i class="fas fa-file-archive"></i></div>
+              <div class="tool-info">
+                <h3>${name}</h3>
+                <span>格式：${ext}</span>
+              </div>
+            </div>
+            <div class="tool-body">
+              <p class="tool-description">
+                ${description}
+              </p>
+              <p class="download-way">
+                ${remote ? '该资源存储于外部服务器，点击后将跳转至目标地址。' : '点击即可直接下载。'}
+              </p>
+            </div>
+            <div class="tool-footer">
+              <a class="download-btn" href="${path}" ${remote ? 'target="_blank" rel="noopener"' : 'download'}>
+                <i class="fas fa-${remote ? 'external-link-alt' : 'download'}"></i>
+                ${remote ? '转去下载' : '立即下载'}
+              </a>
+            </div>`;
+          grid.appendChild(card);
+        });
+      })
+      .catch(err => {
+        document.getElementById('tools-grid').innerHTML =
+          '<p style="text-align:center;color:#e74c3c">读取 projects.json 失败，请检查文件是否存在及格式是否正确。</p>';
+      });
+    </script>
+    </body>
+</html>

@@ -1,0 +1,157 @@
+
+/* ===== 变量与通用 =====*/
+:root {
+    --primary-color:#4361ee;
+    --secondary-color:#3f37c9;
+    --accent-color:#4895ef;
+    --light-color:#f8f9fa;
+    --dark-color:#212529;
+    --success-color:#4cc9f0;
+    --warning-color:#f72585;
+    --danger-color:#f72585;
+    --text-color:#333;
+    --border-color:#ddd;
+    --shadow-color:rgba(0,0,0,.1);
+}
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box
+}
+body {
+    font-family:'Roboto',sans-serif;
+    background:#f5f7fa;
+    color:var(--text-color);
+    line-height:1.6
+}
+a {
+    text-decoration:none;
+    color:var(--primary-color)
+}
+a:hover {
+    text-decoration:underline
+}
+/* ===== 头部 =====*/
+header {
+    text-align:center;
+    padding:40px 20px;
+    margin-bottom:30px;
+    background:linear-gradient(135deg,var(--primary-color),var(--secondary-color));
+    color:#fff;
+    border-radius:10px;
+    box-shadow:0 5px 15px var(--shadow-color)
+}
+header h1 {
+    font-size:2.5rem;
+    margin-bottom:10px
+}
+header p {
+    font-size:1.1rem;
+    opacity:.9
+}
+/* ===== 公告栏 =====*/
+.announcement-bar {
+    background:#fff8e1;
+    border-left:4px solid #ffc107;
+    padding:15px 20px;
+    margin-bottom:30px;
+    border-radius:4px;
+    box-shadow:0 2px 5px var(--shadow-color)
+}
+.announcement-bar h3 {
+    color:#ff9800;
+    margin-bottom:10px;
+    font-size:1.2rem
+}
+.announcement-bar p {
+    margin-bottom:5px
+}
+/* ===== 工具网格 =====*/
+.tools-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(350px,1fr));
+    gap:25px;
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 20px
+}
+.tool-card {
+    background:#fff;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 15px var(--shadow-color);
+    transition:transform .3s ease,box-shadow .3s ease
+}
+.tool-card:hover {
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,.15)
+}
+.tool-header {
+    display:flex;
+    align-items:center;
+    padding:20px;
+    background:linear-gradient(135deg,var(--primary-color),var(--secondary-color));
+    color:#fff
+}
+.tool-icon {
+    width:60px;
+    height:60px;
+    font-size:2rem;
+    margin-right:15px;
+    background:rgba(255,255,255,.2);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center
+}
+.tool-info h3 {
+    font-size:1.3rem;
+    margin-bottom:5px
+}
+.tool-body {
+    padding:20px
+}
+.tool-description {
+    margin-bottom:20px;
+    color:#555
+}
+.tool-stats {
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:20px;
+    font-size:.9rem
+}
+.tool-footer {
+    padding:15px 20px;
+    background:#f8f9fa;
+    border-top:1px solid #eee
+}
+.download-btn {
+    display:block;
+    width:100%;
+    padding:12px;
+    background:var(--primary-color);
+    color:#fff;
+    border:none;
+    border-radius:5px;
+    font-size:1rem;
+    cursor:pointer;
+    text-align:center;
+    transition:background .3s ease
+}
+.download-btn:hover {
+    background:var(--secondary-color)
+}
+/* ===== 页脚 =====*/
+.footer {
+    text-align:center;
+    margin:50px 0 20px;
+    font-size:.9rem;
+    color:#666
+}
+/* ===== 响应式 =====*/
+@media(max-width:768px) {
+    .tools-grid {
+        grid-template-columns:1fr
+    }
+}

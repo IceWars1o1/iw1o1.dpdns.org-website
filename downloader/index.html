@@ -65,7 +65,9 @@
         padding:15px 20px;
         margin-bottom:30px;
         border-radius:4px;
-        box-shadow:0 2px 5px var(--shadow-color)
+        box-shadow:0 2px 5px var(--shadow-color);
+        max-width: 1080px;
+        margin:auto
     }
     .announcement-bar h3 {
         color:#ff9800;
@@ -76,13 +78,16 @@
         margin-bottom:5px
     }
     /* ===== 工具网格 =====*/
-    .tools-grid {
+    .tools-grid .tools-warning-block {
         display:grid;
         grid-template-columns:repeat(auto-fill,minmax(350px,1fr));
         gap:25px;
         max-width:1200px;
         margin:0 auto;
         padding:0 20px
+    }
+    .tools-warning-block {
+        display:block;
     }
     .tool-card {
         background:#fff;
@@ -185,43 +190,7 @@
         </div> <!-- 页脚 -->
         <footer class="footer">
             © 2025 · Crafted with <i class="fas fa-heart" style="color:#f72585"></i> · <a href="mailto:abqyc@outlook.com">联系站主</a>
-        </footer> <!-- 脚本：读取 projects.json 并渲染卡片 --> <!--<script>
-  fetch('./projects.json')
-    .then(r => r.json())
-    .then(list => {
-      const grid = document.getElementById('tools-grid');
-      if(!Array.isArray(list) || list.length === 0){
-        grid.innerHTML='<p style="text-align:center;color:#666">暂无项目</p>';
-        return;
-      }
-      list.forEach(({name, path, description}, idx) => {
-        const ext = path.split('.').pop().toUpperCase();
-        const card = document.createElement('div');
-        card.className = 'tool-card';
-        card.innerHTML = `
-          <div class="tool-header">
-            <div class="tool-icon"><i class="fas fa-file-archive"></i></div>
-            <div class="tool-info">
-              <h3>${name}</h3>
-              <span>格式：${ext}</span>
-            </div>
-          </div>
-          <div class="tool-body">
-            <p class="tool-description">${description}</p>
-          </div>
-          <div class="tool-footer">
-            <a class="download-btn" href="${path}" download>
-              <i class="fas fa-download"></i> 立即下载
-            </a>
-          </div>`;
-        grid.appendChild(card);
-      });
-    })
-    .catch(err=>{
-      document.getElementById('tools-grid').innerHTML=
-        '<p style="text-align:center;color:#e74c3c">读取 projects.json 失败，请检查文件是否存在及格式是否正确。</p>';
-    });
-  </script>-->
+        </footer> 
         <script>
     /* 支持的远程协议 */
     const remoteProtocols = ['http://', 'https://', 'ftp://', 'sftp://'];
@@ -237,7 +206,7 @@
       .then(list => {
         const grid = document.getElementById('tools-grid');
         if (!Array.isArray(list) || list.length === 0) {
-          grid.innerHTML = '<p style="text-align:center;color:#666">暂无项目</p>';
+          grid.innerHTML = '<p style="text-align:center;color:#666;display:grid">暂无项目</p>';
           return;
         }
     
@@ -274,7 +243,7 @@
       })
       .catch(err => {
         document.getElementById('tools-grid').innerHTML =
-          '<p style="text-align:center;color:#e74c3c">读取 projects.json 失败，请检查文件是否存在及格式是否正确。</p>';
+          '<p style="text-align:center;color:#e74c3c;display:block">读取 projects.json 失败</p>';
       });
     </script>
     </body>

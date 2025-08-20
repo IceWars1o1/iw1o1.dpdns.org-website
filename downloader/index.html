@@ -11,7 +11,7 @@
     /* ===== 变量与通用 =====*/
     :root {
         --primary-color:#4361ee;
-        --secondary-color:#3f37c9;
+        --secondary-color:#3852c7;
         --accent-color:#4895ef;
         --light-color:#f8f9fa;
         --dark-color:#212529;
@@ -66,7 +66,7 @@
         margin-bottom:30px;
         border-radius:4px;
         box-shadow:0 2px 5px var(--shadow-color);
-        max-width: 1080px;
+        max-width: 1200px;
         margin:auto
     }
     .announcement-bar h3 {
@@ -78,18 +78,24 @@
         margin-bottom:5px
     }
     /* ===== 工具网格 =====*/
-    .tools-grid .tools-warning-block {
+    .tools-grid{
         display:grid;
         grid-template-columns:repeat(auto-fill,minmax(350px,1fr));
         gap:25px;
         max-width:1200px;
         margin:0 auto;
-        padding:0 20px
+        padding:20px;
     }
-    .tools-warning-block {
-        display:block;
+    
+    /* 让错误/空提示横跨整行并居中 */
+    .tools-grid > p{
+        grid-column: 1 / -1;   /* 从第一列跨到最后列 */
+        text-align:center;
+        color:#666;
+        margin:0;              /* 去掉默认 p 的外边距 */
     }
     .tool-card {
+        max-width: 350px;
         background:#fff;
         border-radius:10px;
         overflow:hidden;

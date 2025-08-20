@@ -198,59 +198,58 @@
             © 2025 · Crafted with <i class="fas fa-heart" style="color:#f72585"></i> · <a href="mailto:abqyc@outlook.com">联系站主</a>
         </footer> 
         <script>
-    /* 支持的远程协议 */
-    const remoteProtocols = ['http://', 'https://', 'ftp://', 'sftp://'];
-    
-    /* 判断是否为远程链接 */
-    function isRemote(url) {
-      return remoteProtocols.some(p => url.trim().toLowerCase().startsWith(p));
-    }
-    
-    /* 渲染卡片 */
-    fetch('./projects.json')
-      .then(r => r.json())
-      .then(list => {
-        const grid = document.getElementById('tools-grid');
-        if (!Array.isArray(list) || list.length === 0) {
-          grid.innerHTML = '<p style="text-align:center;color:#666;display:grid">暂无项目</p>';
-          return;
+        /* 支持的远程协议 */
+        const remoteProtocols = ['http://', 'https://', 'ftp://', 'sftp://'];
+        
+        /* 判断是否为远程链接 */
+        function isRemote(url) {
+          return remoteProtocols.some(p => url.trim().toLowerCase().startsWith(p));
         }
-    
-        list.forEach(({ name, path, description }) => {
-          const ext = (path.split('.').pop() || '').toUpperCase();
-          const remote = isRemote(path);
-    
-          const card = document.createElement('div');
-          card.className = 'tool-card';
-          card.innerHTML = `
-            <div class="tool-header">
-              <div class="tool-icon"><i class="fas fa-file-archive"></i></div>
-              <div class="tool-info">
-                <h3>${name}</h3>
-                <span>格式：${ext}</span>
-              </div>
-            </div>
-            <div class="tool-body">
-              <p class="tool-description">
-                ${description}
-              </p>
-              <p class="download-way">
-                ${remote ? '该资源存储于外部服务器，点击后将跳转至目标地址。' : '点击即可直接下载。'}
-              </p>
-            </div>
-            <div class="tool-footer">
-              <a class="download-btn" href="${path}" ${remote ? 'target="_blank" rel="noopener"' : 'download'}>
-                <i class="fas fa-${remote ? 'external-link-alt' : 'download'}"></i>
-                ${remote ? '转去下载' : '立即下载'}
-              </a>
-            </div>`;
-          grid.appendChild(card);
-        });
-      })
-      .catch(err => {
-        document.getElementById('tools-grid').innerHTML =
-          '<p style="text-align:center;color:#e74c3c;display:block">读取 projects.json 失败</p>';
-      });
-    </script>
+        
+        /* 渲染卡片 */
+        fetch('./projects.json')
+          .then(r => r.json())
+          .then(list => {
+            const grid = document.getElementById('tools-grid');
+            if (!Array.isArray(list) || list.length === 0) {
+              grid.innerHTML = '<p style="text-align:center;color:#666">暂无项目</p>';
+              return;
+            }
+        
+            list.forEach(({ name, path, description }) => {
+              const ext = (path.split('.').pop() || '').toUpperCase();
+              const remote = isRemote(path);
+              const desc = description ?? '-';   // 关键：缺省描述用 “-”
+        
+              const card = document.createElement('div');
+              card.className = 'tool-card';
+              card.innerHTML = `
+                <div class="tool-header">
+                  <div class="tool-icon"><i class="fas fa-file-archive"></i></div>
+                  <div class="tool-info">
+                    <h3>${name}</h3>
+                    <span>格式：${ext}</span>
+                  </div>
+                </div>
+                <div class="tool-body">
+                  <p class="tool-description">${desc}</p>
+                  <p class="download-way">
+                    ${remote ? '该资源存储于外部服务器，点击后将跳转至目标地址。' : '点击即可直接下载。'}
+                  </p>
+                </div>
+                <div class="tool-footer">
+                  <a class="download-btn" href="${path}" ${remote ? 'target="_blank" rel="noopener"' : 'download'}>
+                    <i class="fas fa-${remote ? 'external-link-alt' : 'download'}"></i>
+                    ${remote ? '转去下载' : '立即下载'}
+                  </a>
+                </div>`;
+              grid.appendChild(card);
+            });
+          })
+          .catch(err => {
+            document.getElementById('tools-grid').innerHTML =
+              '<p style="text-align:center;color:#e74c3c">读取 projects.json 失败</p>';
+          });
+        </script>
     </body>
 </html>

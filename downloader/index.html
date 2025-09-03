@@ -199,31 +199,43 @@
         </footer> 
         <script>
         /* 支持的远程协议 */
-        const remoteProtocols = ['http://', 'https://', 'ftp://', 'sftp://'];
+        const remoteProtocols = ['http://','https://','ftp://','sftp://'];
         
-        /* 判断是否为远程链接 */
-        function isRemote(url) {
-          return remoteProtocols.some(p => url.trim().toLowerCase().startsWith(p));
+        function isRemote(url){
+          return remoteProtocols.some(p=>url.trim().toLowerCase().startsWith(p));
+        }
+        
+        /* 干净的扩展名提取 */
+        function getExt(url){
+          try{
+            const u = new URL(url);           // 自动解析 ?、# 等
+            const clean = u.pathname;         // 只保留路径
+            const match = clean.match(/\.([a-zA-Z0-9]+)$/);
+            return match ? match[1].toUpperCase() : '-';
+          }catch{                               // 非标准 url 或相对路径
+            const clean = url.split('?')[0].split('#')[0];
+            const match = clean.match(/\.([a-zA-Z0-9]+)$/);
+            return match ? match[1].toUpperCase() : '-';
+          }
         }
         
         /* 渲染卡片 */
         fetch('./projects.json')
-          .then(r => r.json())
-          .then(list => {
-            const grid = document.getElementById('tools-grid');
-            if (!Array.isArray(list) || list.length === 0) {
-              grid.innerHTML = '<p style="text-align:center;color:#666">暂无项目</p>';
+          .then(r=>r.json())
+          .then(list=>{
+            const grid=document.getElementById('tools-grid');
+            if(!Array.isArray(list)||list.length===0){
+              grid.innerHTML='<p style="text-align:center;color:#666">暂无项目</p>';
               return;
             }
-        
-            list.forEach(({ name, path, description }) => {
-              const ext = (path.split('.').pop() || '').toUpperCase();
+            list.forEach(({name,path,description})=>{
               const remote = isRemote(path);
-              const desc = description ?? '-';   // 关键：缺省描述用 “-”
+              const ext    = getExt(path);
+              const desc   = description ?? '-';
         
-              const card = document.createElement('div');
-              card.className = 'tool-card';
-              card.innerHTML = `
+              const card=document.createElement('div');
+              card.className='tool-card';
+              card.innerHTML=`
                 <div class="tool-header">
                   <div class="tool-icon"><i class="fas fa-file-archive"></i></div>
                   <div class="tool-info">
@@ -234,20 +246,20 @@
                 <div class="tool-body">
                   <p class="tool-description">${desc}</p>
                   <p class="download-way">
-                    ${remote ? '该资源存储于外部服务器，点击后将跳转至目标地址。' : '点击即可直接下载。'}
+                    ${remote?'该资源存储于外部服务器，点击后将跳转至目标地址。':'点击即可直接下载。'}
                   </p>
                 </div>
                 <div class="tool-footer">
-                  <a class="download-btn" href="${path}" ${remote ? 'target="_blank" rel="noopener"' : 'download'}>
-                    <i class="fas fa-${remote ? 'external-link-alt' : 'download'}"></i>
-                    ${remote ? '转去下载' : '立即下载'}
+                  <a class="download-btn" href="${path}" ${remote?'target="_blank" rel="noopener"':'download'}>
+                    <i class="fas fa-${remote?'external-link-alt':'download'}"></i>
+                    ${remote?'转去下载':'立即下载'}
                   </a>
                 </div>`;
               grid.appendChild(card);
             });
           })
-          .catch(err => {
-            document.getElementById('tools-grid').innerHTML =
+          .catch(err=>{
+            document.getElementById('tools-grid').innerHTML=
               '<p style="text-align:center;color:#e74c3c">读取 projects.json 失败</p>';
           });
         </script>

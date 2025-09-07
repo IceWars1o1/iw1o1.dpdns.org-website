@@ -32,5 +32,10 @@
     {
         "name":"网站源码仓库下载",
         "path":"https://gh-proxy.com/https://github.com/DanMoAB/iw1o1.dpdns.org-website/archive/refs/heads/master.zip"
+    },
+    {
+        "name":"-",
+        "path":"projects/新学期展望.txt"
+        "description":"-"
     }
 ]

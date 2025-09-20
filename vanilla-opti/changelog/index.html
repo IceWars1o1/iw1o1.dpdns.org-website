@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<title>更新日志</title>
 	<style>
-	    /* 1. ASCII 专用（0000-007F） */
+        /* 1. ASCII 专用（0000-007F） */
         @font-face {
           font-family: 'Mojangles';
           src: url('/assets/font/Mojangles.ttf') format('truetype');
@@ -21,8 +21,7 @@
           unicode-range: U+0080-10FFFF;        /* 除 ASCII 外的所有字符 */
           font-weight: normal;
           font-style: normal;
-        }        
-        
+        }
 		:root{
 		  --accent:#0078d4;
 		  --bg:#f5f7fa;
@@ -85,6 +84,51 @@
 		  h2{font-size:1.5rem}
 		  .log-item{margin-bottom:18px}
 		}
+		  /* ===== MC 颜色 ===== */
+		  .mc-0 { color:#000000; }  .mc-bg-0 { background:#000000; }
+		  .mc-1 { color:#0000AA; }  .mc-bg-1 { background:#00002A; }
+		  .mc-2 { color:#00AA00; }  .mc-bg-2 { background:#002A00; }
+		  .mc-3 { color:#00AAAA; }  .mc-bg-3 { background:#002A2A; }
+		  .mc-4 { color:#AA0000; }  .mc-bg-4 { background:#2A0000; }
+		  .mc-5 { color:#AA00AA; }  .mc-bg-5 { background:#2A002A; }
+		  .mc-6 { color:#FFAA00; }  .mc-bg-6 { background:#402A00; }
+		  .mc-7 { color:#AAAAAA; }  .mc-bg-7 { background:#2A2A2A; }
+		  .mc-8 { color:#555555; }  .mc-bg-8 { background:#151515; }
+		  .mc-9 { color:#5555FF; }  .mc-bg-9 { background:#15153F; }
+		  .mc-a { color:#55FF55; }  .mc-bg-a { background:#153F15; }
+		  .mc-b { color:#55FFFF; }  .mc-bg-b { background:#153F3F; }
+		  .mc-c { color:#FF5555; }  .mc-bg-c { background:#3F1515; }
+		  .mc-d { color:#FF55FF; }  .mc-bg-d { background:#3F153F; }
+		  .mc-e { color:#FFFF55; }  .mc-bg-e { background:#3F3F15; }
+		  .mc-f { color:#FFFFFF; }  .mc-bg-f { background:#3F3F3F; }
+		  /* 基岩版材料色 */
+		  .mc-g { color:#DDD605; } .mc-bg-g { background:#373501; }
+		  .mc-h { color:#E3D4D1; } .mc-bg-h { background:#383534; }
+		  .mc-i { color:#CECACA; } .mc-bg-i { background:#333232; }
+		  .mc-j { color:#443A3B; } .mc-bg-j { background:#110E0E; }
+		  .mc-m { color:#971607; } .mc-bg-m { background:#250501; }
+		  .mc-n { color:#B4684D; } .mc-bg-n { background:#2D1A13; }
+		  .mc-p { color:#DEB12D; } .mc-bg-p { background:#372C0B; }
+		  .mc-q { color:#47A036; } .mc-bg-q { background:#04280D; }
+		  .mc-s { color:#2CBAA8; } .mc-bg-s { background:#0B2E2A; }
+		  .mc-t { color:#21497B; } .mc-bg-t { background:#08121E; }
+		  .mc-u { color:#9A5CC6; } .mc-bg-u { background:#261731; }
+		  .mc-v { color:#EB7114; } .mc-bg-v { background:#3B1D05; }
+		  
+		  /* ===== MC 格式 ===== */
+		  .mc-bold { font-weight:bold; }
+		  .mc-italic { font-style:italic; }
+		  .mc-underline { text-decoration:underline; }
+		  .mc-strike { text-decoration:line-through; }
+		  .mc-random { /* 随机乱码效果 */
+		    display:inline-block;
+		    animation: mcRandom .25s steps(1) infinite;
+		  }
+		  @keyframes mcRandom {
+		    0% { opacity:1; }
+		    50% { opacity:.6; }
+		  }
+		
 	</style>
 </head>
 <body>
@@ -92,7 +136,6 @@
 		<h2>更新日志</h2>
 		<div id="logs">加载中...</div>
 	</div>
-	<span style="color:gray;size:12px">Copyright (C) IceWars1o1 2025</span>
 	<script>
 		async function loadLogs() {
 		  const container = document.getElementById('logs');
@@ -114,16 +157,84 @@
 		    json.data.forEach(item=>{
 		      const div = document.createElement('div');
 		      div.className = 'log-item';
-		      const content = item.content
-		        .replace(/\\n/g,'\n')
-		        .replace(/\\u[\dA-Fa-f]{4}/g, m=>String.fromCharCode(parseInt(m.slice(2),16)));
-		      div.innerHTML = `<div class="log-version">${item.version}</div><div class="log-content">${content}</div>`;
+		      let content = item.content
+		  .replace(/\\n/g,'\n')
+		  .replace(/\\u[\dA-Fa-f]{4}/g, m=>String.fromCharCode(parseInt(m.slice(2),16)));
+		        content = colorizeMC(content);   // ← 新增
+		        div.innerHTML = `<div class="log-version">${item.version}</div><div class="log-content">${content}</div>`;
+		        
 		      container.appendChild(div);
 		    });
 		  } catch (e) {
 		    container.innerHTML = `<div class="loading">加载失败：${e.message}</div>`;
 		  }
+		  
 		}
+		
+		function colorizeMC(raw, asBlock = false) {
+          const colorMap = {
+            '0':'0','1':'1','2':'2','3':'3','4':'4','5':'5','6':'6','7':'7','8':'8','9':'9',
+            'a':'a','b':'b','c':'c','d':'d','e':'e','f':'f',
+            'g':'g','h':'h','i':'i','j':'j','m':'m','n':'n','p':'p','q':'q','s':'s','t':'t','u':'u','v':'v'
+          };
+          const formatMap = { 'k':'random','l':'bold','m':'strike','n':'underline','o':'italic','r':'reset' };
+        
+          let html = '';
+        
+          // ✅ 按行拆，每行之前自动加 §r，实现“换行还原样式”
+          const lines = raw.split('\n');
+        
+          for (let i = 0; i < lines.length; i++) {
+            if (i > 0) html += '<br>';
+        
+            let line = lines[i];
+            let curColor = '';
+            let curFmt = new Set();
+        
+            function open() {
+              const cls = [];
+              if (curColor) cls.push('mc-' + curColor);
+              curFmt.forEach(f => cls.push('mc-' + f));
+              return cls.length ? `<span class="${cls.join(' ')}">` : '';
+            }
+        
+            function wrap(text) {
+              if (!text && text !== 0) return '';
+              const o = open();
+              return o ? o + text + '</span>' : text;
+            }
+        
+            // ✅ 每行之前自动加 §r，实现“还原样式”
+            line = '§r' + line;
+        
+            const parts = line.split(/(§[0-9a-fk-or])/gi);
+            for (let j = 0; j < parts.length; j++) {
+              const p = parts[j];
+              if (!p) continue;
+        
+              if (p[0] === '§') {
+                const code = p[1].toLowerCase();
+                if (colorMap[code]) {
+                  curColor = colorMap[code];
+                  curFmt.clear();
+                } else if (formatMap[code]) {
+                  if (code === 'r') {
+                    curColor = '';
+                    curFmt.clear();
+                  } else {
+                    curFmt.add(formatMap[code]);
+                  }
+                }
+                continue;
+              }
+        
+              html += wrap(p);
+            }
+          }
+        
+          return asBlock ? `<div>${html}</div>` : html;
+        }
+        
 		loadLogs();
 	</script>
 </body>

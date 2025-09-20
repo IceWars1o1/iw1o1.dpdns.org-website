@@ -154,14 +154,7 @@
 		  
 		}
 		
-		/**
-         * 将 Minecraft § 代码转成带样式的 HTML
-         * 遇到 \n 会自动拆行并**续接**当前样式
-         * @param {string} raw  原始字符串
-         * @param {boolean} asBlock 是否当成块级元素（默认 false，即内联）
-         * @return {string}     可直接塞进 innerHTML
-         */
-        function colorizeMC(raw, asBlock = false) {
+		function colorizeMC(raw, asBlock = false) {
           const colorMap = {
             '0':'0','1':'1','2':'2','3':'3','4':'4','5':'5','6':'6','7':'7','8':'8','9':'9',
             'a':'a','b':'b','c':'c','d':'d','e':'e','f':'f',
@@ -169,44 +162,46 @@
           };
           const formatMap = { 'k':'random','l':'bold','m':'strike','n':'underline','o':'italic','r':'reset' };
         
-          let html = '',
-              curColor = '',
-              curFmt = new Set();
+          let html = '';
         
-          /* 根据当前状态生成 <span class="..."> */
-          function open() {
-            const cls = [];
-            if (curColor) cls.push('mc-' + curColor);
-            curFmt.forEach(f => cls.push('mc-' + f));
-            return cls.length ? `<span class="${cls.join(' ')}">` : '';
-          }
-        
-          /* 把一段纯文本包裹进当前样式 */
-          function wrap(text) {
-            if (!text && text !== 0) return '';
-            const o = open();
-            return o ? o + text + '</span>' : text;
-          }
-        
-          /* 先按真正的“行”拆，再对每一行内部做 § 解析 */
+          // ✅ 按行拆，每行之前自动加 §r，实现“换行还原样式”
           const lines = raw.split('\n');
-          for (let L = 0; L < lines.length; L++) {
-            if (L > 0) html += '<br>';          // 换行符本身用 <br> 表现
         
-            const line = lines[L];
+          for (let i = 0; i < lines.length; i++) {
+            if (i > 0) html += '<br>';
+        
+            let line = lines[i];
+            let curColor = '';
+            let curFmt = new Set();
+        
+            function open() {
+              const cls = [];
+              if (curColor) cls.push('mc-' + curColor);
+              curFmt.forEach(f => cls.push('mc-' + f));
+              return cls.length ? `<span class="${cls.join(' ')}">` : '';
+            }
+        
+            function wrap(text) {
+              if (!text && text !== 0) return '';
+              const o = open();
+              return o ? o + text + '</span>' : text;
+            }
+        
+            // ✅ 每行之前自动加 §r，实现“还原样式”
+            line = '§r' + line;
+        
             const parts = line.split(/(§[0-9a-fk-or])/gi);
-        
-            for (let i = 0; i < parts.length; i++) {
-              const p = parts[i];
+            for (let j = 0; j < parts.length; j++) {
+              const p = parts[j];
               if (!p) continue;
         
-              if (p[0] === '§') {               // 控制码
+              if (p[0] === '§') {
                 const code = p[1].toLowerCase();
-                if (colorMap[code]) {           // 颜色会清格式
+                if (colorMap[code]) {
                   curColor = colorMap[code];
                   curFmt.clear();
                 } else if (formatMap[code]) {
-                  if (code === 'r') {           // 重置
+                  if (code === 'r') {
                     curColor = '';
                     curFmt.clear();
                   } else {
@@ -215,13 +210,14 @@
                 }
                 continue;
               }
-              html += wrap(p);                  // 普通文本
+        
+              html += wrap(p);
             }
           }
         
           return asBlock ? `<div>${html}</div>` : html;
         }
-        	
+        
 		loadLogs();
 	</script>
 </body>

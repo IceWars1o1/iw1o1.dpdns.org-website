@@ -362,13 +362,12 @@ body {
     margin-left:auto;
     margin-right:auto
 }
-.mx-left{
+.mx-left {
     margin-left:0rem;
     margin-right:auto;
     width:100%;
     text-align: left
 }
-
 .my-8 {
     margin-top:2rem;
     margin-bottom:2rem
@@ -1379,11 +1378,9 @@ to {
     line-height:1
 }
 }
-
 .padding-top-96 {
-   padding-top: 96px;
+    padding-top: 96px;
 }
-
 .dl-steps {
     list-style: none;
     padding: 0;

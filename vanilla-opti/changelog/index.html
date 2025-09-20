@@ -1,10 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-<head>
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<meta charset="UTF-8">
-	<title>更新日志</title>
-	<style>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="/assets/css/styles.css">
+        <title>原版优化整合包 - 更新日志</title>
+        <style>
         /* 1. ASCII 专用（0000-007F） */
         @font-face {
           font-family: 'Mojangles';
@@ -28,7 +31,7 @@
 		  --card:#ffffff;
 		  --text:#222;
 		  --muted:#666;
-		  --radius:10px;
+		  
 		  --shadow:0 4px 18px rgba(0,0,0,.08);
 		  --font:Mojangles,Unifont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 		}
@@ -38,9 +41,10 @@
 		  font-family:var(--font);
 		  background:var(--bg);
 		  color:var(--text);
-		  padding:20px;
+		  
 		}
 		.log-container{
+		  radius:10px;
 		  max-width:800px;
 		  margin:auto;
 		  background:var(--card);
@@ -79,8 +83,7 @@
 		
 		/* 响应式微调 */
 		@media(max-width:600px){
-		  body{padding:12px}
-		  .log-container{padding:20px 22px}
+		  .log-container{margin:12px;padding:20px 22px}
 		  h2{font-size:1.5rem}
 		  .log-item{margin-bottom:18px}
 		}
@@ -128,15 +131,85 @@
 		    0% { opacity:1; }
 		    50% { opacity:.6; }
 		  }
+		  
+		  #footer {
+		    font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+		  }
+		  
 		
 	</style>
-</head>
-<body>
-	<div class="log-container">
-		<h2>更新日志</h2>
-		<div id="logs">加载中...</div>
-	</div>
-	<script>
+    </head>
+    <body>
+        <div class="log-container">
+            <h2>更新日志</h2>
+            <div id="logs">
+                加载中...
+            </div>
+        </div>
+        <footer class="w-full bg-gradient-to-br from-gray-900 to-black text-white py-16" style="width:100%" id="footer">
+            <div class="w-full mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                    <div class="lg:col-span-2">
+                        <div class="flex items-center space-x-3 mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-600 rounded-lg flex items-center justify-center"><img src="/images/logo.jpg" alt="Logo" class="w-full h-full object-cover rounded-lg">
+                            </div>
+                            <div>
+                              <h3 class="text-xl font-bold">Minecraft</h3>
+                              <p class="text-gray-400 text-sm">原版优化整合包</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 leading-relaxed mb-6 max-w-md">体验更多可能的Minecraft，使用资源包获取更加方便、快捷的游玩体验。</p>
+                        <div class="flex space-x-4">
+                            <div class="flex items-center space-x-2 bg-gray-800 px-3 py-1 rounded-full"><span class="text-sm">🎉</span> <span class="text-xs text-gray-300">方便</span>
+                            </div>
+                            <div class="flex items-center space-x-2 bg-gray-800 px-3 py-1 rounded-full"><span class="text-sm">🔒</span> <span class="text-xs text-gray-300">快捷</span>
+                            </div>
+                            <div class="flex items-center space-x-2 bg-gray-800 px-3 py-1 rounded-full"><span class="text-sm">💬</span> <span class="text-xs text-gray-300">免费</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">快速链接</h4>
+                        <ul class="space-y-3">
+                            <li><a href="https://vanilla-opti.iw1o1.dpdns.org/#home" class="text-gray-400 hover:text-green-400 transition-colors text-sm">首页</a></li>
+                            <li><a href="https://vanilla-opti.iw1o1.dpdns.org/#features" class="text-gray-400 hover:text-green-400 transition-colors text-sm">介绍</a></li>
+                            <li><a href="https://vanilla-opti.iw1o1.dpdns.org/#feedback" class="text-gray-400 hover:text-green-400 transition-colors text-sm">问题反馈</a></li>
+                            <li><a href="https://vanilla-opti.iw1o1.dpdns.org/#join" class="text-gray-400 hover:text-green-400 transition-colors text-sm">立即使用</a></li>
+                            <li><a href="https://vanilla-opti.iw1o1.dpdns.org/changelog" class="text-gray-400 hover:text-green-400 transition-colors text-sm">更新日志</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">联系信息</h4>
+                        <ul class="space-y-3">
+                            <li class="text-gray-400 text-sm"><span class="text-gray-500">资源包名称：</span> <br> Minecraft 原版优化整合包</li>
+                            <li class="text-gray-400 text-sm"><span class="text-gray-500">联系方式：</span> <br> QQ群、Bilibili</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-800 my-8"></div>
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div class="flex items-center space-x-4">
+                        <p class="text-gray-400 text-sm">Copyright © 2025 林台、IceWars1o1</p> <span class="text-gray-600">|</span>
+                        <p class="text-gray-400 text-sm">保留所有权利</p>
+                    </div>
+                    <div class="flex items-center space-x-6"><button class="flex items-center space-x-2 text-gray-400 hover:text-green-400 transition-colors text-sm" onclick="redirect(0)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github "><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path> <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                            </svg> <span>MIT License</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link "><path d="M15 3h6v6"></path> <path d="M10 14 21 3"></path> <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            </svg> </button>
+                        <div class="flex items-center space-x-2 text-gray-400 text-sm"><span>由</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart text-red-500"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                            </svg> <span>制作</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <div class="flex justify-center space-x-4 text-3xl opacity-30"><span class="animate-pulse">⛏️</span> <span class="animate-pulse" style="animation-delay: 0.5s;">🏗️</span> <span class="animate-pulse" style="animation-delay: 1s;">⚔️</span> <span class="animate-pulse" style="animation-delay: 1.5s;">🛡️</span> <span class="animate-pulse" style="animation-delay: 2s;">💨</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script>
 		async function loadLogs() {
 		  const container = document.getElementById('logs');
 		  container.innerHTML = '<div class="loading">加载中...</div>';
@@ -237,6 +310,5 @@
         
 		loadLogs();
 	</script>
-</body>
-
+    </body>
 </html>

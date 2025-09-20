@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPS 测试</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+        }
+        
+        .time-selector {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .time-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .time-btn.active {
+            background: #667eea;
+            color: white;
+        }
+        
+        .time-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .click-area {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.1s ease;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .click-area:active {
+            transform: scale(0.98);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        .click-area.clicked {
+            animation: pulse 0.1s ease;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.95); }
+            100% { transform: scale(1); }
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .stat-item {
+            padding: 0.5rem 1rem;
+            background: #f0f0f0;
+            border-radius: 10px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .stat-value {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.5rem;
+        }
+        
+        .retry-btn {
+            padding: 0.75rem 2rem;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: none;
+        }
+        
+        .retry-btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .best-score {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #f0f0f0;
+            border-radius: 10px;
+            display: none;
+        }
+        
+        .best-score-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .best-score-value {
+            font-size: 1.5rem;
+            color: #e53e3e;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CPS 点击测试</h1>
+        
+        <div class="time-selector">
+            <button class="time-btn active" data-time="3">3 秒</button>
+            <button class="time-btn" data-time="5">5 秒</button>
+            <button class="time-btn" data-time="10">10 秒</button>
+            <button class="time-btn" data-time="20">20 秒</button>
+        </div>
+        
+        <div class="click-area" id="clickArea">
+            <span id="clickText">点击开始测试</span>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-label">剩余时间</div>
+                <div class="stat-value" id="timeLeft">-</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">点击次数</div>
+                <div class="stat-value" id="clickCount">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">当前CPS</div>
+                <div class="stat-value" id="currentCps">0.0</div>
+            </div>
+        </div>
+        
+        <button class="retry-btn" id="retryBtn">重试</button>
+        
+        <div class="best-score" id="bestScore">
+            <div class="best-score-label">最高记录</div>
+            <div class="best-score-value" id="bestScoreValue">0.0 CPS</div>
+        </div>
+    </div>
+
+    <script>
+        let selectedTime = 3;
+        let clickCount = 0;
+        let isTesting = false;
+        let startTime = 0;
+        let timer = null;
+        let bestCps = 0;
+    
+        const clickArea = document.getElementById('clickArea');
+        const clickText = document.getElementById('clickText');
+        const timeLeft = document.getElementById('timeLeft');
+        const clickCountEl = document.getElementById('clickCount');
+        const currentCps = document.getElementById('currentCps');
+        const retryBtn = document.getElementById('retryBtn');
+        const bestScoreEl = document.getElementById('bestScore');
+        const bestScoreValue = document.getElementById('bestScoreValue');
+    
+        document.querySelectorAll('.time-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if (isTesting) return;
+                document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                selectedTime = parseInt(e.target.dataset.time);
+                reset();
+            });
+        });
+    
+        function handleClick() {
+            if (!isTesting) {
+                startTest();
+            } else {
+                clickCount++;
+                clickCountEl.textContent = clickCount;
+                updateCps();
+                clickArea.classList.add('clicked');
+                setTimeout(() => clickArea.classList.remove('clicked'), 100);
+            }
+        }
+    
+        clickArea.addEventListener('click', handleClick);
+        clickArea.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            handleClick();
+        });
+    
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                handleClick();
+            }
+        });
+    
+        function startTest() {
+            isTesting = true;
+            clickCount = 0;
+            startTime = Date.now();
+    
+            clickText.textContent = '点击！';
+            timeLeft.textContent = selectedTime;
+            clickCountEl.textContent = '0';
+            currentCps.textContent = '0.0';
+            retryBtn.style.display = 'none';
+    
+            timer = setInterval(() => {
+                const elapsed = (Date.now() - startTime) / 1000;
+                const remaining = Math.max(0, selectedTime - elapsed);
+                timeLeft.textContent = remaining.toFixed(1);
+                updateCps();
+    
+                if (remaining <= 0) {
+                    endTest();
+                }
+            }, 50);
+        }
+    
+        function updateCps() {
+            const elapsed = Math.max((Date.now() - startTime) / 1000, 0.05);
+            const cps = (clickCount / elapsed).toFixed(1);
+            currentCps.textContent = cps;
+        }
+    
+        function endTest() {
+            clearInterval(timer);
+            isTesting = false;
+    
+            const endTime = Date.now();
+            const elapsedTime = (endTime - startTime) / 1000;
+            const finalCps = (clickCount / elapsedTime).toFixed(1);
+            clickText.textContent = `测试结束！你的CPS: ${finalCps}`;
+    
+            if (parseFloat(finalCps) > bestCps) {
+                bestCps = parseFloat(finalCps);
+                bestScoreValue.textContent = `${bestCps} CPS`;
+                bestScoreEl.style.display = 'block';
+            }
+    
+            retryBtn.style.display = 'inline-block';
+    
+            requestAnimationFrame(() => {
+                clickArea.style.pointerEvents = 'none';
+                clickArea.style.touchAction = 'none';
+            });
+        }
+    
+        function reset() {
+            clickCount = 0;
+            isTesting = false;
+            clearInterval(timer);
+    
+            clickText.textContent = '点击开始测试';
+            timeLeft.textContent = '-';
+            clickCountEl.textContent = '0';
+            currentCps.textContent = '0.0';
+            retryBtn.style.display = 'none';
+    
+            clickArea.style.pointerEvents = 'auto';
+            clickArea.style.touchAction = 'auto';
+    
+            if (bestCps > 0) {
+                bestScoreEl.style.display = 'block';
+            }
+        }
+    
+        // 确保重试按钮能够正常工作
+        retryBtn.addEventListener('click', () => {
+            reset();
+            clickArea.style.pointerEvents = 'auto';
+            clickArea.style.touchAction = 'auto';
+        });
+    </script>
+    
+</body>
+</html>

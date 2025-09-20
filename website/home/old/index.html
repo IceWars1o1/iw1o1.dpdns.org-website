@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主页 - IceWars1o1</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- 设置网页图标 -->
+    <link rel="shortcut icon" href="/images/logo.ico" type="image/x-icon">
+    <link rel="icon" href="/images/logo.ico" type="image/x-icon">
+
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>主页 - IceWars1o1</h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="contents">
+            <h2>目录</h2> <button onclick="redirectToGames()">游戏列表</button>
+            <div class="dropdown"><button class="dropdown-btn">InfMC - 新世纪 介绍</button>
+                <div class="dropdown-content"><a href="javascript:void(0);" onclick="redirectToInfMCIndividual()">个人</a>
+                    <a href="javascript:void(0);" onclick="redirectToInfMCTeam()">集体</a>
+                </div>
+            <button onclick="redirectToPrince()">小王子笔记</button>
+            <button onclick="redirectToQuotes()">每日一句</button>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <p>Copyright © 2025 IceWars1o1.</p>
+                <p>This project is licensed under the <a href="https://iw1o1.dpdns.org/copyright">MIT License</a>.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // 获取下拉按钮和下拉内容
+        const dropdownBtn = document.querySelector('.dropdown-btn');
+        const dropdownContent = document.querySelector('.dropdown-content');
+
+        // 点击按钮时切换下拉菜单的显示状态
+        dropdownBtn.addEventListener('click', function (event) {
+            event.preventDefault(); // 阻止按钮默认行为
+            dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // 点击页面其他地方时关闭下拉菜单
+        document.addEventListener('click', function (event) {
+            if (!dropdownBtn.contains(event.target) && !dropdownContent.contains(event.target)) {
+                dropdownContent.style.display = 'none';
+            }
+        });
+
+        // 跳转函数
+        function redirectToGames() {
+            window.location.href = "https://games.iw1o1.dpdns.org/";
+        }
+
+        function redirectToInfMCIndividual() {
+            window.location.href = "https://infmc.iw1o1.dpdns.org/";
+        }
+
+        function redirectToInfMCTeam() {
+            window.location.href = "https://infmc.dpdns.org/";
+        }
+        function redirectToPrince() {
+            window.location.href = "https://prince.iw1o1.dpdns.org/";
+        }
+        function redirectToQuotes() {
+            window.location.href = "https://daily-quotes.iw1o1.dpdns.org/"
+        }
+    </script>
+</body>
+
+</html>

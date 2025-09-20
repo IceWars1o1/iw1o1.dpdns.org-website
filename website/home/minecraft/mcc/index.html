@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termux 安装 Minecraft Console Client 教程</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        :root {
+            --bg-color: #1e1e2e;
+            --surface-color: #313244;
+            --text-color: #cdd6f4;
+            --primary-color: #89b4fa;
+            --success-color: #a6e3a1;
+            --warning-color: #f9e2af;
+            --error-color: #f38ba8;
+            --link-color: #94e2d5;
+            --font-mono: 'SF Mono', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 1rem;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        main {
+            max-width: 100%;
+            margin: 0 auto;
+            background-color: var(--surface-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            text-align: center;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            word-break: break-word;
+        }
+
+        ol > li {
+            font-weight: bold;
+            color: var(--warning-color);
+        }
+
+        ol > li > * {
+            font-weight: normal;
+            color: var(--text-color);
+        }
+
+        code {
+            font-family: var(--font-mono);
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+            font-size: 0.85em;
+            word-break: break-word;
+        }
+
+        pre {
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-family: var(--font-mono);
+            font-size: 0.85em;
+            line-height: 1.4;
+            position: relative;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            font-size: inherit;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background-color: var(--surface-color);
+            color: var(--text-color);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            z-index: 10; /* 确保按钮在最上层 */
+        }
+
+        .copy-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--bg-color);
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .step-section {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border-left: 4px solid var(--primary-color);
+            background-color: rgba(137, 180, 250, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.4);
+            padding: 0.5rem 1rem;
+            border-radius: 8px 8px 0 0;
+            font-size: 0.8rem;
+            font-family: var(--font-mono);
+            color: var(--text-color);
+        }
+        .code-header .lang {
+            text-transform: uppercase;
+        }
+        .code-header .copy-btn {
+            position: static;          /* 去掉绝对定位 */
+            margin: 0;
+        }
+        pre {
+            margin-top: 0;
+            border-radius: 0 0 8px 8px;
+        }
+
+
+        /* 响应式调整 */
+        @media (max-width: 600px) {
+            body {
+                padding: 0.5rem;
+                font-size: 14px;
+            }
+            main {
+                padding: 1rem;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            pre {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+<main>
+  <h1>Termux 安装 Minecraft Console Client 教程</h1>
+
+  <section class="step-section">
+    <h2><strong>一、 准备工作：</strong></h2>
+    <ul>
+      <li>获取官方版的 Termux 或 ZeroTermux 软件，并完成安装和初始化</li>
+      <li>能正常联网的手机</li>
+    </ul>
+  </section>
+
+  <section class="step-section">
+    <h2><strong>二、安装步骤：</strong></h2>
+
+    <ol>
+      <li>
+        更新软件包
+        <ul><li>输入以下内容换源：</li></ul>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="lang">shell</span>
+            <button class="copy-btn">复制</button>
+          </div>
+          <pre><code class="language-shell">termux-change-repo</code></pre>
+        </div>
+        <p>在界面中点击按键栏的下键（↓），按下键盘的空格键（└┘），按下键盘或按键栏的回车键（←┘）。然后再在接下来的界面中使用按键栏的上（↑）下（↓）键控制强调行至 <code>( ) mirrors.tuna.tsingMirror by Tsinghua University TUNA Association</code> 一行，并按下空格（└┘）键，然后按下回车（←┘）键。等待代码跑完，执行下一步。</p>
+      </li>
+
+      <li>
+        更新依赖
+        <p>输入以下内容以更新依赖：</p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="lang">shell</span>
+            <button class="copy-btn">复制</button>
+          </div>
+          <pre><code class="language-shell">pkg update && pkg upgrade -y</code></pre>
+        </div>
+        <p>等待代码跑完执行下一步。</p>
+      </li>
+
+      <li>
+        安装容器包及需要的软件包
+        <p>输入以下内容安装 <code>proot-distro</code>：</p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="lang">shell</span>
+            <button class="copy-btn">复制</button>
+          </div>
+          <pre><code class="language-shell">pkg install proot-distro -y && pkg install vim -y</code></pre>
+        </div>
+        <p>等待代码跑完执行下一步。</p>
+      </li>
+
+      <li>
+        安装容器
+        <p>双指在控制台捏合，缩小画面尺寸。</p>
+        <p>先输入</p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="lang">shell</span>
+            <button class="copy-btn">复制</button>
+          </div>
+          <pre><code class="language-shell">vim $PREFIX/etc/proot-distro/ubuntu.sh</code></pre>
+        </div>
+        <p>进入文本编辑器。按下键盘 <code>i</code> 键，然后通过按键栏的上下左右键移动光标，修改 3 个 <code>TARBALL_URL</code> 行 <code>=</code> 后面的链接：在每个 <code>https://</code> 前加上：</p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="lang">text</span>
+            <button class="copy-btn">复制</button>
+          </div>
+          <pre><code>https://gh-proxy.com/</code></pre>
+        </div>
+        <p>此步骤可以显著提高下载速度。三行的内容都修改完成后，按下按键栏的 Esc 键，然后输入 <code>:wq</code> 保存并退出。</p>
+        <p>然后输入</p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="lang">shell</span>
+            <button class="copy-btn">复制</button>
+          </div>
+          <pre><code class="language-shell">proot-distro install ubuntu</code></pre>
+        </div>
+        <p>等待下载安装步骤的完成。完成后，不出意外会出现如下输出：</p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="lang">text</span>
+            <button class="copy-btn">复制</button>
+          </div>
+          <pre><code>[*] Finished.
+
+Log in with: proot-distro login ubuntu</code></pre>
+        </div>
+      </li>
+
+      <li>
+        进入容器
+        <p>键入以下内容：</p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="lang">shell</span>
+            <button class="copy-btn">复制</button>
+          </div>
+          <pre><code class="language-shell">proot-distro login ubuntu</code></pre>
+        </div>
+        <p>稍等片刻，命令行标记会从 <code>~ $</code> 变为 <code>root@localhost:~#</code>。此时，你已成功进入 Ubuntu 24.04 系统。</p>
+      </li>
+
+      <li>
+        更新依赖（可选：换源）
+        <div class="code-block">
+          <div class="code-header">
+            <span class="lang">shell</span>
+            <button class="copy-btn">复制</button>
+          </div>
+          <pre><code class="language-shell">cp /etc/apt/sources.list.d/ubuntu.sources /etc/apt/sources.list.d/ubuntu.sources.bak
+
+cat > /etc/apt/sources.list.d/ubuntu.sources <<'EOF'
+Types: deb
+URIs: http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/
+Suites: noble noble-updates noble-security noble-backports
+Components: main restricted universe multiverse
+Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+EOF
+
+apt update
+apt upgrade -y</code></pre>
+        </div>
+        <p>容器系统独立于 Termux 终端。键入以下命令：</p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="lang">shell</span>
+            <button class="copy-btn">复制</button>
+          </div>
+          <pre><code class="language-shell">apt update && apt upgrade -y</code></pre>
+        </div>
+        <p>此次等待时间可能较长，具体时间取决于网络环境。</p>
+      </li>
+
+      <li>
+        安装 .NET 8
+        <p>输入：</p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="lang">shell</span>
+            <button class="copy-btn">复制</button>
+          </div>
+          <pre><code class="language-shell">apt install dotnet-sdk-8.0 -y</code></pre>
+        </div>
+        <p>跑完后限制其内存申请最大值：</p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="lang">shell</span>
+            <button class="copy-btn">复制</button>
+          </div>
+          <pre><code class="language-shell">echo 'export DOTNET_GCHeapHardLimit=200000000' >> ~/.bashrc
+echo 'export DOTNET_EnableDiagnostics=0'        >> ~/.bashrc
+source ~/.bashrc</code></pre>
+        </div>
+        <p>验证安装：</p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="lang">shell</span>
+            <button class="copy-btn">复制</button>
+          </div>
+          <pre><code class="language-shell">dotnet --version</code></pre>
+        </div>
+      </li>
+
+      <li>
+        获取 Minecraft Console Client
+        <p>键入以下命令：</p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="lang">shell</span>
+            <button class="copy-btn">复制</button>
+          </div>
+          <pre><code class="language-shell">mkdir mcc
+cd mcc</code></pre>
+        </div>
+        <p>然后使用系统浏览器访问网页 <a href="https://github.com/MCCTeam/Minecraft-Console-Client/releases/latest" target="_blank">Minecraft Console Client</a>，按照你的 CPU 架构找到合适的 Linux 版本。</p>
+        <p>以下以 CPU 架构为 Arm64(AARCH64) 的系统为例，复制对应文件的地址，然后在运行着 proot 容器的 Termux 里输入：</p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="lang">shell</span>
+            <button class="copy-btn">复制</button>
+          </div>
+          <pre><code class="language-shell">wget https://gh-proxy.com/[你复制的地址] -O MinecraftClient</code></pre>
+        </div>
+        <p>例如：</p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="lang">shell</span>
+            <button class="copy-btn">复制</button>
+          </div>
+          <pre><code class="language-shell">wget https://gh-proxy.com/https://github.com/MCCTeam/Minecraft-Console-Client/releases/download/20250522-285/MinecraftClient-20250522-285-linux-arm64 -O MinecraftClient</code></pre>
+        </div>
+        <p>等待下载完成后输入：</p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="lang">shell</span>
+            <button class="copy-btn">复制</button>
+          </div>
+          <pre><code class="language-shell">chmod +x MinecraftClient</code></pre>
+        </div>
+      </li>
+
+      <li>
+        运行爽玩！
+        <div class="code-block">
+          <div class="code-header">
+            <span class="lang">shell</span>
+            <button class="copy-btn">复制</button>
+          </div>
+          <pre><code class="language-shell">./MinecraftClient</code></pre>
+        </div>
+        <p>完成后，可参照 <a href="https://b23.tv/5AoCith">@芒果方块</a> 的教程使用！</p>
+      </li>
+    </ol>
+  </section>
+</main>
+
+
+
+<script>
+/* 复制按钮脚本 */
+document.querySelectorAll('.code-block').forEach(block => {
+  const btn = block.querySelector('.copy-btn');
+  const code = block.querySelector('code');
+  btn.addEventListener('click', () => {
+    navigator.clipboard.writeText(code.textContent);
+    btn.textContent = '已复制!';
+    setTimeout(() => btn.textContent = '复制', 2000);
+  });
+});
+</script>
+</body>
+
+</html>

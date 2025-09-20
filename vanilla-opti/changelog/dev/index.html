@@ -67,118 +67,6 @@
 		  h2{font-size:1.5rem}
 		  .log-item{margin-bottom:18px}
 		}
-	</style>
-</head>
-<body>
-	<div class="log-container">
-		<h2>更新日志</h2>
-		<div id="logs">加载中...</div>
-	</div>
-	<script>
-		async function loadLogs() {
-		  const container = document.getElementById('logs');
-		  container.innerHTML = '<div class="loading">加载中...</div>';
-		  try {
-		    const res = await fetch('/changelog/dev/api/logs', {
-		      method: 'POST',
-		      headers: {
-		        'X-API-Key': 'miku_dream_2025_secure_api_v1',
-		        'X-Request-Type': 'logs',
-		        'Content-Type': 'application/json'
-		      }
-		    });
-		    const json = await res.json();
-		    if (!json.success || !Array.isArray(json.data)) throw new Error('格式异常');
-		
-		    // data 已经按 id 倒序（最新在前），无需再 reverse
-		    container.innerHTML = '';
-		    json.data.forEach(item=>{
-		      const div = document.createElement('div');
-		      div.className = 'log-item';
-		      const content = item.content
-		        .replace(/\\n/g,'\n')
-		        .replace(/\\u[\dA-Fa-f]{4}/g, m=>String.fromCharCode(parseInt(m.slice(2),16)));
-		      div.innerHTML = `<div class="log-version">${item.version}</div><div class="log-content">${content}</div>`;
-		      container.appendChild(div);
-		    });
-		  } catch (e) {
-		    container.innerHTML = `<div class="loading">加载失败：${e.message}</div>`;
-		  }
-		}
-		loadLogs();
-	</script>
-</body>
-
-</html>
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<meta charset="UTF-8">
-	<title>更新日志</title>
-	<style>
-		:root{
-		  --accent:#0078d4;
-		  --bg:#f5f7fa;
-		  --card:#ffffff;
-		  --text:#222;
-		  --muted:#666;
-		  --radius:10px;
-		  --shadow:0 4px 18px rgba(0,0,0,.08);
-		  --font:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-		}
-		*{box-sizing:border-box;margin:0;padding:0}
-		html{line-height:1.6;-webkit-font-smoothing:antialiased}
-		body{
-		  font-family:var(--font);
-		  background:var(--bg);
-		  color:var(--text);
-		  padding:20px;
-		}
-		.log-container{
-		  max-width:800px;
-		  margin:auto;
-		  background:var(--card);
-		  border-radius:var(--radius);
-		  box-shadow:var(--shadow);
-		  padding:28px 32px;
-		}
-		h2{
-		  font-size:1.8rem;
-		  margin-bottom:24px;
-		  color:var(--accent);
-		  text-align:center;
-		}
-		.log-item{
-		  margin-bottom:24px;
-		  border-left:4px solid var(--accent);
-		  padding-left:16px;
-		}
-		.log-version{
-		  font-weight:700;
-		  font-size:1.15rem;
-		  color:var(--accent);
-		  margin-bottom:4px;
-		}
-		.log-content{
-		  white-space:pre-wrap;
-		  word-break:break-word;
-		  color:var(--text);
-		  line-height:1.65;
-		}
-		.loading{
-		  text-align:center;
-		  color:var(--muted);
-		  font-size:1rem;
-		}
-		
-		/* 响应式微调 */
-		@media(max-width:600px){
-		  body{padding:12px}
-		  .log-container{padding:20px 22px}
-		  h2{font-size:1.5rem}
-		  .log-item{margin-bottom:18px}
-		}
 		  /* ===== MC 颜色 ===== */
 		  .mc-0 { color:#000000; }  .mc-bg-0 { background:#000000; }
 		  .mc-1 { color:#0000AA; }  .mc-bg-1 { background:#00002A; }
@@ -267,60 +155,73 @@
 		}
 		
 		/**
-		 * 将 Minecraft § 代码转成带样式的 HTML
-		 * @param {string} raw  原始字符串
-		 * @param {boolean} asBlock 是否当成块级元素（默认 false，即内联）
-		 * @return {string}     可直接塞进 innerHTML
-		 */
-		function colorizeMC(raw, asBlock = false) {
-		  const colorMap = {
-		    '0':'0','1':'1','2':'2','3':'3','4':'4','5':'5','6':'6','7':'7','8':'8','9':'9',
-		    'a':'a','b':'b','c':'c','d':'d','e':'e','f':'f',
-		    'g':'g','h':'h','i':'i','j':'j','m':'m','n':'n','p':'p','q':'q','s':'s','t':'t','u':'u','v':'v'
-		  };
-		  const formatMap = { 'k':'random','l':'bold','m':'strike','n':'underline','o':'italic','r':'reset' };
-		
-		  let html = '',        // 最终 HTML
-		      curColor = '',    // 当前颜色
-		      curFmt = new Set(); // 当前格式集合
-		
-		  function openSpan() {
-		    const cls = [];
-		    if (curColor) cls.push('mc-' + curColor);
-		    curFmt.forEach(f => cls.push('mc-' + f));
-		    return cls.length ? `<span class="${cls.join(' ')}">` : '';
-		  }
-		
-		  const parts = raw.split(/(§[0-9a-fk-or])/gi);
-		  for (let i = 0; i < parts.length; i++) {
-		    const p = parts[i];
-		    if (!p) continue;
-		    if (p[0] === '§') {
-		      const code = p[1].toLowerCase();
-		      if (colorMap[code]) {          // 颜色码会覆盖格式
-		        curColor = colorMap[code];
-		        curFmt.clear();
-		      } else if (formatMap[code]) {
-		        if (code === 'r') {          // 重置
-		          curColor = '';
-		          curFmt.clear();
-		        } else {
-		          curFmt.add(formatMap[code]);
-		        }
-		      }
-		      continue;
-		    }
-		    // 普通文本
-		    const span = openSpan();
-		    if (span) {
-		      html += span + p.replace(/\n/g,'<br>') + '</span>';
-		    } else {
-		      html += p.replace(/\n/g,'<br>');
-		    }
-		  }
-		  return asBlock ? `<div>${html}</div>` : html;
-		}
-		
+         * 将 Minecraft § 代码转成带样式的 HTML
+         * 遇到 \n 会自动拆行并**续接**当前样式
+         * @param {string} raw  原始字符串
+         * @param {boolean} asBlock 是否当成块级元素（默认 false，即内联）
+         * @return {string}     可直接塞进 innerHTML
+         */
+        function colorizeMC(raw, asBlock = false) {
+          const colorMap = {
+            '0':'0','1':'1','2':'2','3':'3','4':'4','5':'5','6':'6','7':'7','8':'8','9':'9',
+            'a':'a','b':'b','c':'c','d':'d','e':'e','f':'f',
+            'g':'g','h':'h','i':'i','j':'j','m':'m','n':'n','p':'p','q':'q','s':'s','t':'t','u':'u','v':'v'
+          };
+          const formatMap = { 'k':'random','l':'bold','m':'strike','n':'underline','o':'italic','r':'reset' };
+        
+          let html = '',
+              curColor = '',
+              curFmt = new Set();
+        
+          /* 根据当前状态生成 <span class="..."> */
+          function open() {
+            const cls = [];
+            if (curColor) cls.push('mc-' + curColor);
+            curFmt.forEach(f => cls.push('mc-' + f));
+            return cls.length ? `<span class="${cls.join(' ')}">` : '';
+          }
+        
+          /* 把一段纯文本包裹进当前样式 */
+          function wrap(text) {
+            if (!text && text !== 0) return '';
+            const o = open();
+            return o ? o + text + '</span>' : text;
+          }
+        
+          /* 先按真正的“行”拆，再对每一行内部做 § 解析 */
+          const lines = raw.split('\n');
+          for (let L = 0; L < lines.length; L++) {
+            if (L > 0) html += '<br>';          // 换行符本身用 <br> 表现
+        
+            const line = lines[L];
+            const parts = line.split(/(§[0-9a-fk-or])/gi);
+        
+            for (let i = 0; i < parts.length; i++) {
+              const p = parts[i];
+              if (!p) continue;
+        
+              if (p[0] === '§') {               // 控制码
+                const code = p[1].toLowerCase();
+                if (colorMap[code]) {           // 颜色会清格式
+                  curColor = colorMap[code];
+                  curFmt.clear();
+                } else if (formatMap[code]) {
+                  if (code === 'r') {           // 重置
+                    curColor = '';
+                    curFmt.clear();
+                  } else {
+                    curFmt.add(formatMap[code]);
+                  }
+                }
+                continue;
+              }
+              html += wrap(p);                  // 普通文本
+            }
+          }
+        
+          return asBlock ? `<div>${html}</div>` : html;
+        }
+        	
 		loadLogs();
 	</script>
 </body>

@@ -29,7 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <a href="#features" class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">介绍</a>
         <a href="#feedback" class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">问题反馈</a>
         <a href="#join" class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">立即使用</a>
-        <a href="./changelog" class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">更新日志</a>
+        <a href="./changelog" class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors" style="display:none">更新日志</a>
+        <a href="./changelog/out-site" class="nav-btn block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">更新日志</a>
 
     </nav>
     `;
@@ -134,6 +135,9 @@ function redirect(urlNum) {
     
     if (urlNum === 20) {
         window.location.href = "./changelog/";
+    }
+    if (urlNum === 21) {
+        window.location.href = "./changelog/out-site/";
     }
     
 }

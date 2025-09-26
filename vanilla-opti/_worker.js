@@ -1,7 +1,7 @@
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
-    if (url.pathname === '/changelog/dev/api/logs') {
+    if (url.pathname === '/changelog/api/logs') {
       const upstream = await fetch(
         'https://cysunk.mlzi.top/vanilla_optimizations/changelog/assets/2025/secure/gateway.php',
         {

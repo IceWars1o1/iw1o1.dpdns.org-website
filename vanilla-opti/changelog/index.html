@@ -209,40 +209,76 @@
                 </div>
             </div>
         </footer>
+        <script src="assets/secure-api.js"></script>
         <script>
-		async function loadLogs() {
-		  const container = document.getElementById('logs');
-		  container.innerHTML = '<div class="loading">加载中...</div>';
-		  try {
-		    const res = await fetch('/changelog/dev/api/logs', {
-		      method: 'POST',
-		      headers: {
-		        'X-API-Key': 'miku_dream_2025_secure_api_v1',
-		        'X-Request-Type': 'logs',
-		        'Content-Type': 'application/json'
-		      }
-		    });
-		    const json = await res.json();
-		    if (!json.success || !Array.isArray(json.data)) throw new Error('格式异常');
-		
-		    // data 已经按 id 倒序（最新在前），无需再 reverse
-		    container.innerHTML = '';
-		    json.data.forEach(item=>{
-		      const div = document.createElement('div');
-		      div.className = 'log-item';
-		      let content = item.content
-		  .replace(/\\n/g,'\n')
-		  .replace(/\\u[\dA-Fa-f]{4}/g, m=>String.fromCharCode(parseInt(m.slice(2),16)));
-		        content = colorizeMC(content);   // ← 新增
-		        div.innerHTML = `<div class="log-version">${item.version}</div><div class="log-content">${content}</div>`;
-		        
-		      container.appendChild(div);
-		    });
-		  } catch (e) {
-		    container.innerHTML = `<div class="loading">加载失败：${e.message}</div>`;
-		  }
-		  
-		}
+        /* 如果 secure-api.js 加载失败，兜底实现 */
+        if (typeof SecureAPI === 'undefined') {
+          window.SecureAPI = class {
+            constructor() {
+              this.baseUrl = '../assets/gateway.php';
+              this.apiKey  = 'miku_dream_2025_secure_api_v1';
+            }
+            async getLogs() {
+              const res = await fetch(this.baseUrl, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'X-API-Key': this.apiKey,
+                  'X-Request-Type': 'logs',
+                  'X-Request-ID': 'req_' + Date.now() + '_' + Math.random().toString(36).slice(2)
+                },
+                credentials: 'same-origin'
+              });
+              if (!res.ok) throw new Error('HTTP ' + res.status);
+              return res.json();
+            }
+          };
+          window.secureAPI = new SecureAPI();
+          async getLogs() {
+              const res = await fetch(this.baseUrl, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'X-API-Key': this.apiKey,
+                  'X-Request-Type': 'logs',
+                  'X-Request-ID': 'req_' + Date.now() + '_' + Math.random().toString(36).slice(2)
+                },
+                credentials: 'same-origin'
+              });
+            
+              // 核心判断：非 JSON 直接跳转
+              const text = await res.text();
+              if (text.trim().startsWith('<')) {
+                // 跳转到离线提示页（相对当前路径 ./out-site）
+                window.location.href = './out-site';
+                return;               // 终止后续逻辑
+              }
+            
+              // 否则按 JSON 解析
+              try {
+                return JSON.parse(text);
+              } catch (e) {
+                throw new Error('返回内容不是合法 JSON');
+              }
+            }
+            
+        }
+        
+        /* 渲染日志 */
+        secureAPI.getLogs()
+          .then(json => {
+            if (!json.success || !Array.isArray(json.logs)) throw new Error('格式错误');
+            const ul = document.getElementById('changelog-list');
+            ul.innerHTML = json.logs.map(log => `
+              <li class="changelog-item">
+                <div class="changelog-date">版本：${log.version}</div>
+                <div class="changelog-content">${log.content.replace(/\\n/g,'<br>')}</div>
+              </li>`).join('');
+          })
+          .catch(err => {
+            document.getElementById('changelog-list').innerHTML =
+              `<li style="color:#e74c3c;text-align:center;">加载失败：${err.message}</li>`;
+          });
 		
 		function colorizeMC(raw, asBlock = false) {
           const colorMap = {

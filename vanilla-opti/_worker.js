@@ -3,7 +3,7 @@ export default {
     const url = new URL(request.url);
 
     /* 只拦截这一条虚拟路径 */
-    if (url.pathname === '/assets/gateway.php') {
+    if (url.pathname === '/changelog/assets/gateway.php') {
       // 1. 复制浏览器发来的所有头（包含 X-API-Key / X-Request-Type 等）
       const headers = new Headers(request.headers);
 

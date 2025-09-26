@@ -209,11 +209,11 @@
                 </div>
             </div>
         </footer>
-        <script src="assets/secure-api.js"></script>
+        <script src="/changelog/assets/secure-api.js"></script>
         <script>
             /* ========== 日志加载主逻辑 ========== */
             (async function () {
-              const LOGS_URL = '/assets/gateway.php';   // 与当前页同目录
+              const LOGS_URL = '/changelog/assets/gateway.php';   // 与当前页同目录
               const API_KEY = 'miku_dream_2025_secure_api_v1';
             
               try {
@@ -228,7 +228,7 @@
               credentials: 'same-origin'
             }).then(r => r.text());
         
-            /* ---- 关键判断：非 JSON 直接跳转 ---- */
+            /* ---- 非 JSON 直接跳转 ---- */
             if (raw.trim().startsWith('<')) {
               window.location.replace('./out-site');   // 跳转
               return;                                  // 终止渲染

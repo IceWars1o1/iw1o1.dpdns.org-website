@@ -240,9 +240,9 @@
         
             /* ---- 渲染 ---- */
             document.getElementById('logs').innerHTML = logs.map(log =>
-              `<div class="log-item">
+  `<div class="log-item">
                  <div class="log-version">${log.version}</div>
-                 <div class="log-content">${log.content.replace(/\\n/g, '<br>')}</div>
+                 <div class="log-content">${colorizeMC(log.content)}</div>
                </div>`
             ).join('');
         

@@ -20,6 +20,11 @@
         "description":"适用于基岩版的Java进度系统"
     },
     {
+        "name":"校歌音频",
+        "path":"project/校歌音频.wav",
+        "description":"-"
+    },
+    {
         "name":"字体：Unifont",
         "path":"project/Unifont.ttf",
         "description":"经典点阵字体，适用 Unicode 字符，由 Unicode 协会推出。"

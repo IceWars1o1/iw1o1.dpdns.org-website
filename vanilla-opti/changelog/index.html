@@ -8,20 +8,20 @@
   <link rel="stylesheet" href="/assets/css/styles.css">
   <title>原版优化整合包 - 更新日志</title>
   <style>
-    /* 1. ASCII 专用（0000-007F） */
+    
     @font-face {
       font-family: 'Mojangles';
       src: url('/assets/font/Mojangles.woff2') format('woff2');
-      unicode-range: U+0000-007F; /* 仅 ASCII */
+      unicode-range: U+0000-007F; 
       font-weight: normal;
       font-style: normal;
     }
 
-    /* 2. 非 ASCII 用 Unifont */
+    
     @font-face {
       font-family: 'Unifont';
       src: url('/assets/font/Unifont.woff2') format('woff2');
-      unicode-range: U+0080-10FFFF; /* 除 ASCII 外的所有字符 */
+      unicode-range: U+0080-10FFFF; 
       font-weight: normal;
       font-style: normal;
     }
@@ -88,7 +88,7 @@
       font-size: 1rem;
     }
 
-    /* 响应式微调 */
+    
     @media(max-width:600px) {
       .log-container {
         margin: 12px;
@@ -101,7 +101,7 @@
         margin-bottom: 18px
       }
     }
-    /* ===== MC 颜色 ===== */
+    
     .mc-0 {
       color: #000000;
     }
@@ -214,20 +214,7 @@
     .mc-bg-f {
       background: #3F3F3F;
     }
-    /* 基岩版材料色
-		  .mc-g { color:#DDD605; } .mc-bg-g { background:#373501; }
-		  .mc-h { color:#E3D4D1; } .mc-bg-h { background:#383534; }
-		  .mc-i { color:#CECACA; } .mc-bg-i { background:#333232; }
-		  .mc-j { color:#443A3B; } .mc-bg-j { background:#110E0E; }
-		  .mc-m { color:#971607; } .mc-bg-m { background:#250501; }
-		  .mc-n { color:#B4684D; } .mc-bg-n { background:#2D1A13; }
-		  .mc-p { color:#DEB12D; } .mc-bg-p { background:#372C0B; }
-		  .mc-q { color:#47A036; } .mc-bg-q { background:#04280D; }
-		  .mc-s { color:#2CBAA8; } .mc-bg-s { background:#0B2E2A; }
-		  .mc-t { color:#21497B; } .mc-bg-t { background:#08121E; }
-		  .mc-u { color:#9A5CC6; } .mc-bg-u { background:#261731; }
-		  .mc-v { color:#EB7114; } .mc-bg-v { background:#3B1D05; }
-		  /* ===== MC 格式 ===== */
+    
     .mc-bold {
       font-weight: bold;
     }
@@ -241,7 +228,7 @@
       text-decoration: line-through;
     }
     .mc-random {
-      /* 随机乱码效果 */
+      
       display: inline-block;
       animation: mcRandom .25s steps(1) infinite;
     }
@@ -349,9 +336,9 @@
   </footer>
   <script src="/changelog/assets/secure-api.js"></script>
   <script>
-    /* ========== 日志加载主逻辑 ========== */
+    /*
     (async function () {
-      const LOGS_URL = '/changelog/assets/gateway.php'; // 与当前页同目录
+      const LOGS_URL = '/changelog/assets/gateway.php'; 
       const API_KEY = 'miku_dream_2025_secure_api_v1';
 
       try {
@@ -366,17 +353,17 @@
           credentials: 'same-origin'
         }).then(r => r.text());
 
-        /* ---- 非 JSON 直接跳转 ---- */
+        
         if (raw.trim().startsWith('<')) {
-          window.location.replace('./out-site'); // 跳转
-          return; // 终止渲染
+          window.location.replace('./out-site'); 
+          return; 
         }
 
         const json = JSON.parse(raw);
         const logs = json.logs ?? json.data ?? [];
         if (!json.success || !Array.isArray(logs)) throw new Error('字段缺失');
 
-        /* ---- 渲染 ---- */
+        
         document.getElementById('logs').innerHTML = logs.map(log =>
           `<div class="log-item">
           <div class="log-version">${log.version}</div>
@@ -388,13 +375,47 @@
         document.getElementById('logs').innerHTML =
         `<li style="color:#e74c3c;text-align:center;">加载失败：${e.message}</li>`;
       }
+    })();*/
+    (async function () {
+      try {
+        // 1. 直接取静态 JSON
+        const raw = await fetch('./changelog.json', { credentials: 'same-origin' }).then(r => {
+          if (!r.ok) throw new Error('网络响应异常');
+          return r.text();
+        });
+    
+        // 2. 如果返回的是 HTML（比如 404 跳转），直接跳转离场
+        if (raw.trim().startsWith('<')) {
+          window.location.replace('./out-site');
+          return;
+        }
+    
+        const list = JSON.parse(raw);   // 顶层就是数组
+        if (!Array.isArray(list)) throw new Error('changelog.json 格式错误');
+    
+        // 3. 拼 HTML
+        const html = list.map(({ version, logs }) =>
+          `<div class="log-item">
+            <div class="log-version">${version}</div>
+            <div class="log-content">${(logs ?? [])
+                                        .map(l => colorizeMC(l))
+                                        .join('<br>')}</div>
+          </div>`
+        ).join('');
+    
+        // 4. 一次性写入
+        document.getElementById('logs').innerHTML = html;
+    
+      } catch (e) {
+        document.getElementById('logs').innerHTML =
+          `<li style="color:#e74c3c;text-align:center;">加载失败：${e.message}</li>`;
+      }
     })();
 
     function colorizeMC(raw, asBlock = false) {
       const colorMap = {
         '0': '0', '1': '1', '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8', '9': '9',
-        'a': 'a', 'b': 'b', 'c': 'c', 'd': 'd', 'e': 'e', 'f': 'f'/*,
-            'g':'g','h':'h','i':'i','j':'j','m':'m','n':'n','p':'p','q':'q','s':'s','t':'t','u':'u','v':'v'*/
+        'a': 'a', 'b': 'b', 'c': 'c', 'd': 'd', 'e': 'e', 'f': 'f'
       };
       const formatMap = {
         'k': 'random', 'l': 'bold', 'm': 'strike', 'n': 'underline', 'o': 'italic', 'r': 'reset'
@@ -402,7 +423,7 @@
 
       let html = '';
 
-      // ✅ 按行拆，每行之前自动加 §r，实现“换行还原样式”
+      
       const lines = raw.split('\n');
 
       for (let i = 0; i < lines.length; i++) {
@@ -425,7 +446,7 @@
           return o ? o + text + '</span>': text;
         }
 
-        // ✅ 每行之前自动加 §r，实现“还原样式”
+        
         line = '§r' + line;
 
         const parts = line.split(/(§[0-9a-fk-or])/gi);

@@ -84,8 +84,6 @@
 			/* 保证在最底层 */
 		}
 
-
-
 		/* ----------  1. 容器：Wiki 板块外观 + 泥土背景 ---------- */
 		.log-container {
 			border: 2px solid #555;
@@ -158,7 +156,7 @@
 
 		.log-version {
 			font-size: 1.3rem;
-			font-weight: bold;
+			font-weight: 900;
 			color: var(--accent);
 			margin-bottom: 6px;
 		}
@@ -572,7 +570,7 @@
 		    
 			document.getElementById('logs').innerHTML = logs.map(log =>
 			  `<div class="log-item">
-			  <div class="log-version">${log.version}</div>
+			  <bold><div class="log-version">${log.version}</div></bold>
 			  <div class="log-content">${colorizeMC(log.content)}</div>
 			  </div>`
 			).join('');
@@ -602,7 +600,7 @@
 				// 3. 拼 HTML
 				const html = list.map(({ version, logs }) =>
 					`<div class="log-item">
-		        <div class="log-version">${version}</div>
+		        <div class="log-version">${colorizeMC(version)}</div>
 		        <div class="log-content">${(logs ?? [])
 						.map(l => colorizeMC(l))
 						.join('<span class="log-endl"></span>')}</div>

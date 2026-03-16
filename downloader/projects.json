@@ -31,16 +31,11 @@
     },
     {
         "name":"网站源码仓库下载",
-        "path":"https://gh-proxy.com/https://github.com/DanMoAB/iw1o1.dpdns.org-website/archive/refs/heads/master.zip"
+        "path":"https://gh-proxy.org/https://github.com/DanMoAB/iw1o1.dpdns.org-website/archive/refs/heads/master.zip"
     },
     {
         "name":"像素之神.docx",
         "path":"projects/像素之神.docx",
-        "description":"-"
-    },
-    {
-        "name":"字体：GoogleSans",
-        "path":"projects/Roboto-Regular.ttf",
         "description":"-"
     },
     {

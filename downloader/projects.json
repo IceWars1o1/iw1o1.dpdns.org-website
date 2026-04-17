@@ -1,5 +1,10 @@
 [
     {
+        "name":"学科网 - 八下物理月考（一）",
+        "path":"project/八年级下册物理第一次月考模拟测试卷01（新教材人教版，第7~8章）（原卷版）.docx",
+        "description":"-"
+    },
+    {
         "name":"MC投影：毛主席像",
         "path":"project/毛泽东同志.litematic",
         "description":"在 Minecraft: Java Edition 里还原橘子洲毛泽东像的投影文件，需装载模组 Litematica (投影) 。"
